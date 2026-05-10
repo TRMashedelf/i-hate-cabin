@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://brcqxuihp30lv"]
+
+[ext_resource type="Script" uid="uid://b6u1k2nusvm5h" path="res://Scripts/player.gd" id="1_156m4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tbugw"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_156m4"]
+albedo_color = Color(0.5529412, 1, 0.6509804, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yw17q"]
+material = SubResource("StandardMaterial3D_156m4")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw17q"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D" unique_id=1036565057]
+script = ExtResource("1_156m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=498345772]
+shape = SubResource("CapsuleShape3D_tbugw")
+
+[node name="TempMesh" type="MeshInstance3D" parent="." unique_id=1551592110]
+mesh = SubResource("CapsuleMesh_yw17q")
+
+[node name="eyes temp" type="CSGBox3D" parent="TempMesh" unique_id=2033441493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57560265, -0.19886741)
+size = Vector3(0.6, 0.2, 0.4)
+material = SubResource("StandardMaterial3D_yw17q")

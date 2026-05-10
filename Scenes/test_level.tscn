@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://dqb48efubq7tr"]
+
+[ext_resource type="Material" uid="uid://dvhgswag0qdc" path="res://Materials/light brow.tres" id="1_iti4p"]
+[ext_resource type="Script" uid="uid://6xxhqjngmv4i" path="res://Scripts/camera_trigger.gd" id="2_dtjkg"]
+[ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_eglq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpde8"]
+albedo_color = Color(0.21447405, 0.113729574, 0.08351145, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iti4p"]
+albedo_color = Color(4.512258e-08, 0.1413427, 0.14292866, 0.6392157)
+metallic = 0.4
+metallic_specular = 0.72
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtjkg"]
+albedo_color = Color(0.10867437, 0.009227504, 0.0038358404, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eglq2"]
+albedo_color = Color(0.69803923, 0.18039216, 0.18431373, 1)
+metallic = 0.21
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsyfn"]
+albedo_color = Color(0.22745098, 0.13333334, 0.043137256, 1)
+metallic = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w7ni"]
+albedo_color = Color(0.6547684, 0.7026712, 0.66306514, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btda1"]
+albedo_color = Color(0.09411765, 0.08235294, 0.047058824, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eglq2"]
+size = Vector3(9.404297, 4.0859375, 4.729599)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsyfn"]
+size = Vector3(9.456787, 4.0859375, 4.9513855)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7w7ni"]
+size = Vector3(4.1098633, 4.0859375, 10.290634)
+
+[node name="Test Level" type="Node3D" unique_id=136887075]
+
+[node name="Building" type="Node3D" parent="." unique_id=350761639]
+
+[node name="Floor" type="CSGBox3D" parent="Building" unique_id=62285264]
+use_collision = true
+size = Vector3(14, 0.25, 10)
+material = SubResource("StandardMaterial3D_lpde8")
+
+[node name="Wall1" type="CSGBox3D" parent="Building" unique_id=740235234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
+material_override = ExtResource("1_iti4p")
+use_collision = true
+size = Vector3(14, 4, 0.5)
+
+[node name="Wall2" type="CSGBox3D" parent="Building" unique_id=577905617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+material_override = ExtResource("1_iti4p")
+use_collision = true
+size = Vector3(14, 4, 0.5)
+
+[node name="Wall3" type="CSGBox3D" parent="Building" unique_id=1153656763]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 2, -0.007507324)
+material_override = ExtResource("1_iti4p")
+use_collision = true
+size = Vector3(10.47229, 4, 0.5)
+
+[node name="Wall4" type="CSGBox3D" parent="Building" unique_id=1974722956]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 2, -0.007507324)
+use_collision = true
+size = Vector3(10.47229, 4, 0.5)
+material = ExtResource("1_iti4p")
+
+[node name="Wall5" type="CSGBox3D" parent="Building" unique_id=1093411335]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 2, 2.2286377)
+material_override = ExtResource("1_iti4p")
+use_collision = true
+size = Vector3(6, 4, 0.5)
+
+[node name="Window1" type="CSGBox3D" parent="Building" unique_id=1381007237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.775401, 1.847267, -0.071665645)
+size = Vector3(0.1, 1.5, 3.5)
+material = SubResource("StandardMaterial3D_iti4p")
+
+[node name="Window2" type="CSGBox3D" parent="Building" unique_id=1133187842]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.303571, 1.847267, -4.7627916)
+size = Vector3(0.1, 1.5, 3)
+material = SubResource("StandardMaterial3D_iti4p")
+
+[node name="Window3" type="CSGBox3D" parent="Building" unique_id=1851406313]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.443886, 1.847267, -4.7627916)
+size = Vector3(0.1, 1.5, 3)
+material = SubResource("StandardMaterial3D_iti4p")
+
+[node name="Door" type="CSGBox3D" parent="Building" unique_id=316551736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7096415, 1.3646407, -2.6943364)
+size = Vector3(0.1, 2.5297852, 1.4067383)
+material = SubResource("StandardMaterial3D_dtjkg")
+
+[node name="Fireplace" type="CSGBox3D" parent="Building" unique_id=966503537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6360064, 2, 0.62416387)
+use_collision = true
+size = Vector3(2, 4, 2)
+material = SubResource("StandardMaterial3D_eglq2")
+
+[node name="Table" type="CSGBox3D" parent="Building" unique_id=2021090866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.212224, 0.9886942, 2.5595746)
+use_collision = true
+size = Vector3(1.3447266, 1.6, 2.1726074)
+material = SubResource("StandardMaterial3D_rsyfn")
+
+[node name="Chair1" type="CSGBox3D" parent="Building" unique_id=748535167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35869026, 0.6669229, 3.1492047)
+use_collision = true
+size = Vector3(1.0670166, 0.9564575, 0.99334717)
+material = SubResource("StandardMaterial3D_rsyfn")
+
+[node name="Chairbroke" type="CSGBox3D" parent="Building" unique_id=1337013087]
+transform = Transform3D(0.9172965, -0.31797448, 0.2397067, 0, 0.60196835, 0.79851997, -0.3982048, -0.7324796, 0.55218345, 0.08643007, 0.077243686, 1.4062495)
+use_collision = true
+size = Vector3(1.0670166, 0.9564575, 0.99334717)
+material = SubResource("StandardMaterial3D_rsyfn")
+
+[node name="Chair2" type="CSGBox3D" parent="Building" unique_id=221864199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5108387, 0.666922, 0.5308225)
+use_collision = true
+size = Vector3(1.0670166, 0.9564575, 0.99334717)
+material = SubResource("StandardMaterial3D_rsyfn")
+
+[node name="Bed" type="CSGBox3D" parent="Building" unique_id=312292917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1815863, 0.5131998, 2.9074922)
+use_collision = true
+size = Vector3(2, 0.8, 3.86)
+material = SubResource("StandardMaterial3D_7w7ni")
+
+[node name="Roof" type="CSGBox3D" parent="Building" unique_id=782729604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018707275, 4.222796, -0.059570313)
+use_collision = true
+size = Vector3(14.479065, 0.5, 10.408203)
+material = SubResource("StandardMaterial3D_btda1")
+
+[node name="Player" parent="Building" unique_id=1036565057 instance=ExtResource("2_eglq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3234673, 1.025, -2.8368587)
+
+[node name="Cameras" type="Node3D" parent="." unique_id=1039238063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49095547, 0)
+
+[node name="Camera1" type="Camera3D" parent="Cameras" unique_id=137194533]
+transform = Transform3D(0.26722983, -0.08983301, 0.95943654, -0.0018786602, 0.9955949, 0.09374183, -0.96363115, -0.026853062, 0.26588386, 6.5891657, 2.6798952, 1)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera1" unique_id=1149709354]
+script = ExtResource("2_dtjkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera1/Area3D" unique_id=696705912]
+transform = Transform3D(0.96587604, -0.0010508869, 0.25900817, 0.023466783, 0.9962593, -0.083469786, -0.25794446, 0.08670155, 0.9622633, 0.46234262, -0.35057366, -2.0986166)
+shape = SubResource("BoxShape3D_eglq2")
+
+[node name="Camera2" type="Camera3D" parent="Cameras" unique_id=905785829]
+transform = Transform3D(0.2672298, -0.089833006, 0.9594365, -0.0018786599, 0.9955948, 0.093741804, -0.96363103, -0.026853058, 0.26588383, 1.6010659, 3.1723747, 1)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera2" unique_id=1926372793]
+transform = Transform3D(1, -5.5879354e-09, 5.9604645e-08, -1.4901161e-08, 1, -2.6077032e-08, 0, 3.3993274e-08, 0.99999976, 0.082989454, -0.41491127, 0.2588706)
+script = ExtResource("2_dtjkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera2/Area3D" unique_id=1841105211]
+transform = Transform3D(0.96587926, -0.0010511896, 0.25900918, 0.0234668, 0.9963249, -0.08347077, -0.25794527, 0.08670407, 0.962265, 0.34809494, -0.3225422, -2.4221036)
+shape = SubResource("BoxShape3D_rsyfn")
+
+[node name="Camera3" type="Camera3D" parent="Cameras" unique_id=1575985841]
+transform = Transform3D(-0.70091414, -0.06817192, 0.7099803, -0.0018786637, 0.9955948, 0.0937418, -0.7132432, 0.06437114, -0.69795454, -2.9573915, 2.6798952, -4.614952)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera3" unique_id=1346534533]
+transform = Transform3D(0.86602587, -0.04712148, 0.49777383, 0.046620306, 0.99882233, 0.013443023, -0.49782097, 0.011564374, 0.86720276, 0.1771493, -0.059551, 0.6360208)
+script = ExtResource("2_dtjkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Area3D" unique_id=937003719]
+transform = Transform3D(0.965876, -0.0010508859, 0.25900835, 0.023466771, 0.9962592, -0.08346949, -0.25794446, 0.08670153, 0.96226305, 0.8727894, -0.17156386, -5.32526)
+shape = SubResource("BoxShape3D_7w7ni")
+
+[node name="Lights" type="Node3D" parent="." unique_id=146799615]
+
+[node name="Fireplace Light1" type="OmniLight3D" parent="Lights" unique_id=125788200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3958774, 0.87162167, 0.528497)
+light_color = Color(0.99999994, 0.37015894, 0.11601289, 1)
+light_energy = 0.4
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="Fireplace Light2" type="OmniLight3D" parent="Lights" unique_id=496595124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5925906, 0.87162167, 1.7786133)
+light_color = Color(0.99999994, 0.37015894, 0.11601289, 1)
+light_energy = 0.4
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="Fireplace Light3" type="OmniLight3D" parent="Lights" unique_id=1112257826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.820751, 0.87162167, 0.6154796)
+light_color = Color(0.99999994, 0.37015894, 0.11601289, 1)
+light_energy = 0.4
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="Fireplace Light4" type="OmniLight3D" parent="Lights" unique_id=1837688471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6037006, 0.87162167, -0.6771885)
+light_color = Color(0.99999994, 0.37015894, 0.11601289, 1)
+light_energy = 0.4
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="WindowLight" type="OmniLight3D" parent="Lights" unique_id=833620716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4216805, 1.8338283, -4.521365)
+light_color = Color(0.8980392, 1, 1, 1)
+light_energy = 0.2
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="WindowLight2" type="OmniLight3D" parent="Lights" unique_id=775329818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3219309, 1.8338283, -4.521365)
+light_color = Color(0.8980392, 1, 1, 1)
+light_energy = 0.2
+shadow_enabled = true
+omni_range = 25.0
+
+[node name="WindowLight3" type="OmniLight3D" parent="Lights" unique_id=1754950989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.604919, 1.9639804, 0.026415557)
+light_color = Color(0.8980392, 1, 1, 1)
+light_energy = 0.2
+shadow_enabled = true
+omni_range = 25.0
+
+[connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera2/Area3D" to="Cameras/Camera2/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera2/Area3D" to="Cameras/Camera2/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="exit_trigger"]
