@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brcqxuihp30lv"]
 
 [ext_resource type="Script" uid="uid://b6u1k2nusvm5h" path="res://Scripts/player.gd" id="1_156m4"]
+[ext_resource type="PackedScene" uid="uid://1eu3vi8o3xc2" path="res://UI/hud.tscn" id="2_yw17q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tbugw"]
 radius = 0.4
@@ -19,6 +20,7 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1036565057 groups=["player"]]
+process_mode = 3
 script = ExtResource("1_156m4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=498345772]
@@ -31,3 +33,7 @@ mesh = SubResource("CapsuleMesh_yw17q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57560265, -0.19886741)
 size = Vector3(0.6, 0.2, 0.4)
 material = SubResource("StandardMaterial3D_yw17q")
+
+[node name="HUD" parent="." unique_id=1511806409 instance=ExtResource("2_yw17q")]
+process_mode = 3
+visible = false

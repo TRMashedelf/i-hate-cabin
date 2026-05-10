@@ -5,6 +5,8 @@ const SPRINT_SPEED = 4.5
 const TURN_SPEED = 5.0
 const SPRINT_TURN_SPEED = 10.0
 
+@onready var HUD = $HUD
+
 @export var camera: Camera3D = null
 
 func _ready() -> void:
@@ -13,7 +15,14 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	camera = get_viewport().get_camera_3d()
 
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		HUD.visible = !HUD.visible
+		get_tree().paused = !get_tree().paused
+
 func _physics_process(delta: float) -> void:
+	if get_tree().paused:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 

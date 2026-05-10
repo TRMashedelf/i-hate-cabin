@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://1eu3vi8o3xc2"]
 
+[ext_resource type="Script" uid="uid://b3ud7ap3w4ugu" path="res://Scripts/inventory_ui.gd" id="1_ne75i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ne75i"]
+font_size = 72
+
 [node name="HUD" type="Control" unique_id=1511806409]
 layout_mode = 3
 anchors_preset = 15
@@ -7,4 +12,101 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Inventory_UI" type="Control" parent="." unique_id=524385987]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1320.0
+offset_bottom = -280.0
+mouse_filter = 2
+script = ExtResource("1_ne75i")
+
+[node name="VScrollBar" type="VScrollBar" parent="Inventory_UI" unique_id=410322996]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="GridContainer" type="GridContainer" parent="Inventory_UI/VScrollBar" unique_id=1086623081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Status" type="Control" parent="." unique_id=1227483993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 801.0
+offset_right = -1320.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StatusPanel" type="Panel" parent="Status" unique_id=1387397884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthIndicator" type="ColorRect" parent="Status/StatusPanel" unique_id=439519467]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 1, 0, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Status/StatusPanel" unique_id=809940270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -400.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FacePanel" type="Panel" parent="Status/StatusPanel" unique_id=643938498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Placeholder Face" type="Label" parent="Status/StatusPanel/FacePanel" unique_id=1867511122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Face"
+label_settings = SubResource("LabelSettings_ne75i")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 
 Global="*uid://bt2escad62c3n"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [global_group]
 
 pickup=""
