@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dqb48efubq7tr"]
 
 [ext_resource type="Material" uid="uid://dvhgswag0qdc" path="res://Materials/light brow.tres" id="1_iti4p"]
+[ext_resource type="Texture2D" uid="uid://c5hg6b1spvlo3" path="res://Textures/wood1.png" id="1_rsyfn"]
 [ext_resource type="Script" uid="uid://6xxhqjngmv4i" path="res://Scripts/camera_trigger.gd" id="2_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_eglq2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpde8"]
-albedo_color = Color(0.21447405, 0.113729574, 0.08351145, 1)
+albedo_color = Color(0.46809137, 0.27521372, 0.2149598, 1)
+albedo_texture = ExtResource("1_rsyfn")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iti4p"]
 albedo_color = Color(4.512258e-08, 0.1413427, 0.14292866, 0.6392157)
@@ -36,7 +39,7 @@ size = Vector3(9.404297, 4.0859375, 4.729599)
 size = Vector3(9.456787, 4.0859375, 4.9513855)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7w7ni"]
-size = Vector3(4.1098633, 4.0859375, 10.290634)
+size = Vector3(3.6618652, 4.0859375, 10.290634)
 
 [node name="Test Level" type="Node3D" unique_id=136887075]
 
@@ -174,7 +177,7 @@ transform = Transform3D(0.86602587, -0.04712148, 0.49777383, 0.046620306, 0.9988
 script = ExtResource("2_dtjkg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Area3D" unique_id=937003719]
-transform = Transform3D(0.965876, -0.0010508859, 0.25900835, 0.023466771, 0.9962592, -0.08346949, -0.25794446, 0.08670153, 0.96226305, 0.8727894, -0.17156386, -5.32526)
+transform = Transform3D(0.965876, -0.0010508859, 0.25900835, 0.023466771, 0.9962592, -0.08346949, -0.25794446, 0.08670153, 0.96226305, 1.0891445, -0.16630745, -5.3830385)
 shape = SubResource("BoxShape3D_7w7ni")
 
 [node name="Lights" type="Node3D" parent="." unique_id=146799615]

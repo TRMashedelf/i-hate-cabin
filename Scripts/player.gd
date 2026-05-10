@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const SPEED = 2.0
-const SPRINT_SPEED = 5.0
-const TURN_SPEED = 5.0         
-const SPRINT_TURN_SPEED = 10.0 
+const SPEED = 2.3
+const SPRINT_SPEED = 4.5
+const TURN_SPEED = 5.0
+const SPRINT_TURN_SPEED = 10.0
 
 @export var camera: Camera3D = null
 
