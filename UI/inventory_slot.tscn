@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://t01p54k4yi33"]
+
+[ext_resource type="Script" uid="uid://cutj7xlier8oa" path="res://Scripts/inventory_slot.gd" id="1_hmrqk"]
+[ext_resource type="Texture2D" uid="uid://dl6y70hfxopgl" path="res://Textures/Chinese_Bacon_icon.png" id="2_phof1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmrqk"]
+font_size = 40
+font_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmrqk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phof1"]
+font_size = 32
+font_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7war"]
+font_size = 32
+font_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5672o"]
+font_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+
+[node name="Inventory_Slot" type="Control" unique_id=571407414]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 160.0
+script = ExtResource("1_hmrqk")
+
+[node name="OuterBorder" type="ColorRect" parent="." unique_id=763398950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13752344, 0.078376584, 0.07517246, 1)
+
+[node name="InnerBorder" type="ColorRect" parent="." unique_id=933547014]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2435329, 0.15281525, 0.14674121, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemQuantity" type="Label" parent="InnerBorder" unique_id=1938789390]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+label_settings = SubResource("LabelSettings_hmrqk")
+horizontal_alignment = 1
+
+[node name="ItemIcon" type="Sprite2D" parent="InnerBorder" unique_id=597566332]
+position = Vector2(70, 70)
+texture = ExtResource("2_phof1")
+
+[node name="ItemButton" type="Button" parent="." unique_id=1499076992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hmrqk")
+
+[node name="DetailsPanel" type="ColorRect" parent="." unique_id=1337684335]
+visible = false
+layout_mode = 0
+offset_top = -135.0
+offset_right = 300.0
+offset_bottom = -5.0
+color = Color(0.13752344, 0.078376584, 0.07517246, 1)
+
+[node name="ItemName" type="Label" parent="DetailsPanel" unique_id=1463710359]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 23.0
+text = "NAME"
+label_settings = SubResource("LabelSettings_phof1")
+
+[node name="ItemType" type="Label" parent="DetailsPanel" unique_id=1642449139]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "TYPE"
+label_settings = SubResource("LabelSettings_t7war")
+
+[node name="Description" type="Label" parent="DetailsPanel" unique_id=2105333041]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -50.0
+offset_right = 95.0
+grow_vertical = 0
+text = "Description"
+label_settings = SubResource("LabelSettings_5672o")
+vertical_alignment = 1
+
+[node name="UsagePanel" type="ColorRect" parent="." unique_id=568239152]
+visible = false
+layout_mode = 0
+offset_top = -135.0
+offset_right = 300.0
+offset_bottom = -5.0
+color = Color(0.13752344, 0.078376584, 0.07517246, 1)
+
+[node name="Use" type="Button" parent="UsagePanel" unique_id=2096416041]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 10.0
+offset_right = 115.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Use"
+
+[node name="Discard" type="Button" parent="UsagePanel" unique_id=1582527398]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -59.0
+offset_right = 115.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Discard"
+
+[connection signal="gui_input" from="ItemButton" to="." method="_on_item_button_gui_input"]
+[connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
+[connection signal="pressed" from="UsagePanel/Discard" to="." method="_on_discard_pressed"]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_eglq2"]
 [ext_resource type="PackedScene" uid="uid://cfnnt3rfdnte6" path="res://Objects/Pickups/item_pickup.tscn" id="5_btda1"]
 [ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_xq3o0"]
+[ext_resource type="Texture2D" uid="uid://dl6y70hfxopgl" path="res://Textures/Chinese_Bacon_icon.png" id="7_xq3o0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpde8"]
 albedo_color = Color(0.46809137, 0.27521372, 0.2149598, 1)
@@ -238,6 +239,7 @@ transform = Transform3D(0.9366233, 0, 0.35033816, 0, 1, 0, -0.35033816, 0, 0.936
 item_type = "food"
 item_name = "Chinese Bacon"
 item_model = ExtResource("6_xq3o0")
+item_icon_texture = ExtResource("7_xq3o0")
 item_description = "Restores a small portion of hunger"
 
 [connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]

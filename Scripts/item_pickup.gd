@@ -5,6 +5,7 @@ extends Node3D
 @export var item_type = ""
 @export var item_name = ""
 @export var item_model: PackedScene
+@export var item_icon_texture: Texture2D
 @export var item_description = ""
 var scene_path: String = "res://Objects/Pickups/item_pickup.tscn"
 
@@ -35,6 +36,7 @@ func pickup_item():
 		"name": item_name,
 		"description": item_description,
 		"model": item_model,
+		"icon": item_icon_texture,
 		"scene_path": scene_path,
 	}
 	if Global.player_node:
