@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c5hg6b1spvlo3" path="res://Textures/wood1.png" id="1_rsyfn"]
 [ext_resource type="Script" uid="uid://6xxhqjngmv4i" path="res://Scripts/camera_trigger.gd" id="2_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_eglq2"]
+[ext_resource type="PackedScene" uid="uid://cfnnt3rfdnte6" path="res://Objects/Pickups/item_pickup.tscn" id="5_btda1"]
+[ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_xq3o0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpde8"]
 albedo_color = Color(0.46809137, 0.27521372, 0.2149598, 1)
@@ -107,27 +109,27 @@ size = Vector3(2, 4, 2)
 material = SubResource("StandardMaterial3D_eglq2")
 
 [node name="Table" type="CSGBox3D" parent="Building" unique_id=2021090866]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.212224, 0.9886942, 2.5595746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.212224, 0.7197977, 2.5595746)
 use_collision = true
-size = Vector3(1.3447266, 1.6, 2.1726074)
+size = Vector3(1.3447266, 1.062207, 2.1726074)
 material = SubResource("StandardMaterial3D_rsyfn")
 
 [node name="Chair1" type="CSGBox3D" parent="Building" unique_id=748535167]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35869026, 0.6669229, 3.1492047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35869026, 0.47932222, 3.1492047)
 use_collision = true
-size = Vector3(1.0670166, 0.9564575, 0.99334717)
+size = Vector3(1.0670166, 0.5812561, 0.99334717)
 material = SubResource("StandardMaterial3D_rsyfn")
 
 [node name="Chairbroke" type="CSGBox3D" parent="Building" unique_id=1337013087]
-transform = Transform3D(0.9172965, -0.31797448, 0.2397067, 0, 0.60196835, 0.79851997, -0.3982048, -0.7324796, 0.55218345, 0.08643007, 0.077243686, 1.4062495)
+transform = Transform3D(0.9172965, -0.31797448, 0.2397067, 0, 0.60196835, 0.79851997, -0.3982048, -0.7324796, 0.55218345, 0.08643007, -0.13719893, 1.4062495)
 use_collision = true
 size = Vector3(1.0670166, 0.9564575, 0.99334717)
 material = SubResource("StandardMaterial3D_rsyfn")
 
 [node name="Chair2" type="CSGBox3D" parent="Building" unique_id=221864199]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5108387, 0.666922, 0.5308225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5108387, 0.46387938, 0.5308225)
 use_collision = true
-size = Vector3(1.0670166, 0.9564575, 0.99334717)
+size = Vector3(1.0670166, 0.5503723, 0.99334717)
 material = SubResource("StandardMaterial3D_rsyfn")
 
 [node name="Bed" type="CSGBox3D" parent="Building" unique_id=312292917]
@@ -230,6 +232,13 @@ light_color = Color(0.8980392, 1, 1, 1)
 light_energy = 0.2
 shadow_enabled = true
 omni_range = 25.0
+
+[node name="Item_Pickup_Chinese_Bacon" parent="." unique_id=942578606 instance=ExtResource("5_btda1")]
+transform = Transform3D(0.9366233, 0, 0.35033816, 0, 1, 0, -0.35033816, 0, 0.9366233, -0.7341827, 1.2570167, 1.8044447)
+item_type = "food"
+item_name = "Chinese Bacon"
+item_model = ExtResource("6_xq3o0")
+item_description = "Restores a small portion of hunger"
 
 [connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="exit_trigger"]

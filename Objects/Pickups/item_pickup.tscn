@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cfnnt3rfdnte6"]
+
+[ext_resource type="Script" uid="uid://brl7s8cwf7d6n" path="res://Scripts/item_pickup.gd" id="1_be17s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ktxu"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ktxu"]
+render_priority = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.8217887, 0.82178867, 0.82178867, 1)
+billboard_mode = 1
+
+[sub_resource type="TextMesh" id="TextMesh_1ktxu"]
+material = SubResource("StandardMaterial3D_1ktxu")
+text = "\"F\" to Pick Up"
+font_size = 24
+depth = 0.0
+
+[node name="Item_Pickup" type="Node3D" unique_id=942578606 groups=["pickup"]]
+script = ExtResource("1_be17s")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=298281120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22359341, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1075189780]
+shape = SubResource("SphereShape3D_1ktxu")
+
+[node name="Model" type="Node3D" parent="." unique_id=1116676280]
+
+[node name="InteractUI" type="MeshInstance3D" parent="." unique_id=1785679278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6311264, 0)
+visible = false
+mesh = SubResource("TextMesh_1ktxu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

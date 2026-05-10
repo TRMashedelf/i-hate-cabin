@@ -7,6 +7,9 @@ const SPRINT_TURN_SPEED = 10.0
 
 @export var camera: Camera3D = null
 
+func _ready() -> void:
+	Global.set_player_reference(self)
+
 func _process(_delta) -> void:
 	camera = get_viewport().get_camera_3d()
 

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://251c6lpiumf4"]
+
+[ext_resource type="Texture2D" uid="uid://bema0yic6h187" path="res://Textures/Chinese_bacon.png" id="1_d6llp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be17s"]
+albedo_texture = ExtResource("1_d6llp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xsova"]
+material = SubResource("StandardMaterial3D_be17s")
+size = Vector2(0.1, 0.4)
+
+[node name="ChineseBacon" type="MeshInstance3D" unique_id=868920180]
+mesh = SubResource("PlaneMesh_xsova")
