@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cvgt0e3mt00wv"]
+
+[ext_resource type="PackedScene" uid="uid://dip58r15h1u7i" path="res://Models/Joey 5.fbx" id="1_puksg"]
+[ext_resource type="Texture2D" uid="uid://c6ru66tapnkb3" path="res://Textures/Joey Face.png" id="2_dic8v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s3ou"]
+albedo_texture = ExtResource("2_dic8v")
+
+[node name="Joey 5" unique_id=2058127003 instance=ExtResource("1_puksg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1447197707) index="0" unique_id=1585105632]
+bones/1/rotation = Quaternion(-0.03867972, 4.5864585e-05, -0.0005860529, 0.99925154)
+bones/8/rotation = Quaternion(-0.5443536, -0.44471264, 0.55857855, -0.44034073)
+bones/9/rotation = Quaternion(-0.10898437, 0.009756604, 0.008768551, 0.9939569)
+bones/10/rotation = Quaternion(3.538988e-07, 0.28008047, 1.7265428e-08, 0.9599766)
+bones/11/rotation = Quaternion(2.5352284e-07, 0.0036292982, -3.0134106e-07, 0.9999935)
+bones/12/rotation = Quaternion(-3.4593657e-07, 0.49868757, 5.9604645e-08, 0.86678183)
+bones/13/rotation = Quaternion(0.22542386, 9.96637e-07, -0.35485026, 0.90733975)
+bones/14/rotation = Quaternion(0.053890277, 0.096619494, 0.06787342, 0.9915411)
+bones/17/rotation = Quaternion(0.54482853, -0.44448784, 0.5581605, 0.44051033)
+bones/18/rotation = Quaternion(-0.10903198, -0.009268079, -0.008150989, 0.99396163)
+bones/19/rotation = Quaternion(-1.8164585e-07, -0.28295675, -4.6331988e-07, 0.9591327)
+bones/20/rotation = Quaternion(2.2481326e-07, -0.008821906, 4.7730282e-08, 0.9999611)
+bones/21/rotation = Quaternion(-1.5018432e-07, -0.635741, -7.748605e-07, 0.77190244)
+bones/22/rotation = Quaternion(0.36116245, 8.9350516e-07, 0.35021192, 0.8642415)
+bones/23/rotation = Quaternion(0.014545471, -0.10533326, -0.06921948, 0.9919183)
+bones/26/rotation = Quaternion(0.002137884, 0.03231927, 0.99943316, -0.009189693)
+bones/27/rotation = Quaternion(-0.09432438, 0.0001871328, -0.019303968, 0.9953544)
+bones/28/rotation = Quaternion(0.48015797, -0.0038718637, -0.01702765, 0.8770083)
+bones/32/rotation = Quaternion(-0.0020547984, 0.032315273, 0.9994221, 0.010344418)
+bones/33/rotation = Quaternion(-0.096793, -0.00017967657, 0.019256277, 0.9951183)
+bones/34/rotation = Quaternion(0.4739997, 0.0036328346, 0.017119465, 0.88035107)
+
+[node name="Joey" parent="Armature/Skeleton3D" index="2" unique_id=1762181232]
+surface_material_override/4 = SubResource("StandardMaterial3D_6s3ou")
