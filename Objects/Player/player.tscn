@@ -16,7 +16,6 @@ script = ExtResource("1_156m4")
 shape = SubResource("CapsuleShape3D_tbugw")
 
 [node name="HUD" parent="." unique_id=1511806409 instance=ExtResource("2_yw17q")]
-process_mode = 3
 visible = false
 
 [node name="Joey 5" parent="." unique_id=1605397837 instance=ExtResource("3_l2ya6")]

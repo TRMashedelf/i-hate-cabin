@@ -5,24 +5,38 @@ const SPRINT_SPEED = 4.5
 const TURN_SPEED = 5.0
 const SPRINT_TURN_SPEED = 10.0
 
-var max_health: float = 100.0
-var current_health: float = 100.0
-var max_hunger: float = 100.0
-var current_hunger: float = 100.0
+@export var max_health: float = 100.0
+@export var current_health: float = 100.0
+@export var max_hunger: float = 100.0
+@export var current_hunger: float = 100.0
+
+var time_passed = 0.0
 
 @onready var HUD = $HUD
 
 @export var camera: Camera3D = null
 
+
 func _ready() -> void:
 	Global.set_player_reference(self)
 
-func _process(_delta) -> void:
+func _process(delta) -> void:
 	camera = get_viewport().get_camera_3d()
+	if get_tree().paused == true:
+		return
+	else:
+		time_passed += delta
+		if time_passed >= 1.0:
+			current_hunger -= 0.1
+			time_passed -= 1.0
 
 func _input(event):
-	if event.is_action_pressed("inventory"):
+	if event.is_action_pressed("inventory") and HUD.PauseMenu.visible == false:
 		HUD.visible = !HUD.visible
+		get_tree().paused = !get_tree().paused
+	elif event.is_action_pressed("escape"):
+		var pause_menu = HUD.PauseMenu
+		pause_menu.visible = !pause_menu.visible
 		get_tree().paused = !get_tree().paused
 
 func _physics_process(delta: float) -> void:
@@ -62,3 +76,9 @@ func _physics_process(delta: float) -> void:
 
 func get_health_normalized() -> float:
 	return clampf(current_health / max_health, 0.0, 1.0)
+
+func eat(amount: float):
+	if (current_hunger + amount) > max_hunger:
+		current_hunger = max_hunger
+	else:
+		current_hunger += amount

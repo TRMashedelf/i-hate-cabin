@@ -4,13 +4,29 @@
 [ext_resource type="Script" uid="uid://b3ud7ap3w4ugu" path="res://Scripts/inventory_ui.gd" id="1_ne75i"]
 [ext_resource type="Texture2D" uid="uid://c6ru66tapnkb3" path="res://Textures/Joey Face.png" id="2_bytes"]
 [ext_resource type="Shader" uid="uid://bvq1pqsit7ru7" path="res://Shaders/ecg_monitor.gdshader" id="3_b1lf8"]
+[ext_resource type="Texture2D" uid="uid://cfg0l77e6qdsv" path="res://Textures/Hover_Gradient_White.png" id="5_rnl6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rnl6m"]
 shader = ExtResource("3_b1lf8")
 shader_parameter/health = 1.0
 shader_parameter/time_offset = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1lf8"]
+bg_color = Color(0, 0.078431375, 0.9137255, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1lf8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ui3w"]
+texture = ExtResource("5_rnl6m")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnl6m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ui3w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j753"]
+
 [node name="HUD" type="Control" unique_id=1511806409]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,6 +62,47 @@ grow_vertical = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 3
+
+[node name="UsagePanel" type="ColorRect" parent="Inventory_UI" unique_id=257444428]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = -310.0
+offset_top = 38.0
+offset_right = -10.0
+offset_bottom = 168.0
+color = Color(0.13752344, 0.078376584, 0.07517246, 1)
+
+[node name="Use" type="Button" parent="Inventory_UI/UsagePanel" unique_id=1125342535]
+z_index = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 10.0
+offset_right = 115.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Use"
+
+[node name="Discard" type="Button" parent="Inventory_UI/UsagePanel" unique_id=1903158322]
+z_index = 10
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -59.0
+offset_right = 115.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Discard"
 
 [node name="Status" type="Control" parent="." unique_id=1227483993]
 layout_mode = 1
@@ -100,6 +157,18 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="temphungerlabel" type="Label" parent="Status/StatusPanel/TextureProgressBar" unique_id=542301119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "hunger"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FacePanel" type="Panel" parent="Status/StatusPanel" unique_id=643938498]
 layout_mode = 1
 anchors_preset = 15
@@ -119,3 +188,130 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bytes")
+
+[node name="PauseMenu" type="Control" parent="." unique_id=2025751047]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="PauseMenu" unique_id=278502586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1lf8")
+
+[node name="Header" type="Label" parent="PauseMenu/Background" unique_id=20270628]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 76
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Background" unique_id=426247467]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=404123295]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b1lf8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
+text = "Resume"
+
+[node name="underline" type="ColorRect" parent="PauseMenu/Background/VBoxContainer/ResumeButton" unique_id=1839041638]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=1469147558]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rnl6m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
+text = "Options"
+
+[node name="underline" type="ColorRect" parent="PauseMenu/Background/VBoxContainer/OptionsButton" unique_id=1513391767]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="LoadButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=601964222]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ui3w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
+text = "Load"
+
+[node name="underline" type="ColorRect" parent="PauseMenu/Background/VBoxContainer/LoadButton" unique_id=461452467]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="QuitButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=1257773880]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0j753")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
+text = "Quit"
+
+[node name="underline" type="ColorRect" parent="PauseMenu/Background/VBoxContainer/QuitButton" unique_id=1501283881]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="PauseMenu/Background/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Background/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -76,10 +76,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_hmrqk")
 
 [node name="DetailsPanel" type="ColorRect" parent="." unique_id=1337684335]
 visible = false
+z_index = 1
 layout_mode = 0
-offset_top = -135.0
-offset_right = 300.0
-offset_bottom = -5.0
+offset_left = 170.0
+offset_top = 15.0
+offset_right = 470.0
+offset_bottom = 145.0
 color = Color(0.13752344, 0.078376584, 0.07517246, 1)
 
 [node name="ItemName" type="Label" parent="DetailsPanel" unique_id=1463710359]
@@ -118,13 +120,16 @@ vertical_alignment = 1
 
 [node name="UsagePanel" type="ColorRect" parent="." unique_id=568239152]
 visible = false
+z_index = 2
 layout_mode = 0
-offset_top = -135.0
-offset_right = 300.0
-offset_bottom = -5.0
+offset_left = 170.0
+offset_top = 15.0
+offset_right = 470.0
+offset_bottom = 145.0
 color = Color(0.13752344, 0.078376584, 0.07517246, 1)
 
 [node name="Use" type="Button" parent="UsagePanel" unique_id=2096416041]
+z_index = 10
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -138,6 +143,7 @@ theme_override_font_sizes/font_size = 32
 text = "Use"
 
 [node name="Discard" type="Button" parent="UsagePanel" unique_id=1582527398]
+z_index = 10
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -156,4 +162,3 @@ text = "Discard"
 [connection signal="gui_input" from="ItemButton" to="." method="_on_item_button_gui_input"]
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
 [connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
-[connection signal="pressed" from="UsagePanel/Discard" to="." method="_on_discard_pressed"]

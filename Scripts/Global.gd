@@ -51,3 +51,6 @@ func swap_inventory_items(index1, index2):
 	inventory[index2] = temp
 	inventory_updated.emit()
 	return true
+
+func get_player_hunger():
+	return player_node.current_hunger
