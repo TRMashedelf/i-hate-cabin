@@ -149,7 +149,7 @@ material = SubResource("StandardMaterial3D_btda1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49095547, 0)
 
 [node name="Camera1" type="Camera3D" parent="Cameras" unique_id=137194533]
-transform = Transform3D(0.26722983, -0.08983301, 0.95943654, -0.0018786602, 0.9955949, 0.09374183, -0.96363115, -0.026853062, 0.26588386, 6.5891657, 2.6798952, 1)
+transform = Transform3D(0.2672298, -0.089833006, 0.9594364, -0.0018786599, 0.9955948, 0.093741804, -0.96363103, -0.026853057, 0.26588383, 6.5891657, 2.320919, 1)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera1" unique_id=1149709354]
 script = ExtResource("2_dtjkg")
@@ -159,7 +159,7 @@ transform = Transform3D(0.96587604, -0.0010508869, 0.25900817, 0.023466783, 0.99
 shape = SubResource("BoxShape3D_eglq2")
 
 [node name="Camera2" type="Camera3D" parent="Cameras" unique_id=905785829]
-transform = Transform3D(0.2672298, -0.089833006, 0.9594365, -0.0018786599, 0.9955948, 0.093741804, -0.96363103, -0.026853058, 0.26588383, 1.6010659, 3.1723747, 1)
+transform = Transform3D(0.2672298, -0.089833006, 0.9594365, -0.0018786599, 0.9955948, 0.093741804, -0.96363103, -0.026853058, 0.26588383, 1.6010659, 2.2792416, 1)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera2" unique_id=1926372793]
 transform = Transform3D(1, -5.5879354e-09, 5.9604645e-08, -1.4901161e-08, 1, -2.6077032e-08, 0, 3.3993274e-08, 0.99999976, 0.082989454, -0.41491127, 0.2588706)
@@ -170,7 +170,7 @@ transform = Transform3D(0.96587926, -0.0010511896, 0.25900918, 0.0234668, 0.9963
 shape = SubResource("BoxShape3D_rsyfn")
 
 [node name="Camera3" type="Camera3D" parent="Cameras" unique_id=1575985841]
-transform = Transform3D(-0.70091414, -0.06817192, 0.7099803, -0.0018786637, 0.9955948, 0.0937418, -0.7132432, 0.06437114, -0.69795454, -2.9573915, 2.6798952, -4.614952)
+transform = Transform3D(-0.70091414, -0.06817192, 0.7099803, -0.0018786637, 0.9955948, 0.0937418, -0.7132432, 0.06437114, -0.69795454, -2.9573915, 2.323483, -4.614952)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera3" unique_id=1346534533]
 transform = Transform3D(0.86602587, -0.04712148, 0.49777383, 0.046620306, 0.99882233, 0.013443023, -0.49782097, 0.011564374, 0.86720276, 0.1771493, -0.059551, 0.6360208)
