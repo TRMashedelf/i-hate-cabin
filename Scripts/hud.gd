@@ -20,8 +20,12 @@ func _process(delta: float) -> void:
 	if PauseMenu.visible == true:
 		InventoryUI.visible = false
 		visible = true
+		get_tree().paused = true
 	elif PauseMenu.visible == false and self.visible == true:
 		InventoryUI.visible = true
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
 	elapsed += delta
 	shader_mat.set_shader_parameter("time_offset", elapsed)
 	
