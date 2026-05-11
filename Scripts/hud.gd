@@ -3,7 +3,7 @@ extends Control
 var player = Global.player_node
 
 @onready var ecg_display: ColorRect = $Status/StatusPanel/HealthIndicator/ECG
-@onready var hunger_indicator = $Status/StatusPanel/TextureProgressBar/temphungerlabel
+@onready var hunger_indicator = $Status/StatusPanel/HungerIndicator
 @onready var PauseMenu = $PauseMenu
 @onready var InventoryUI = $Inventory_UI
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 	shader_mat = ecg_display.material as ShaderMaterial
 
 func _process(delta: float) -> void:
-	hunger_indicator.text = "%.1f" % Global.get_player_hunger()
+	hunger_indicator.value = Global.get_player_hunger()
 	if PauseMenu.visible == true:
 		InventoryUI.visible = false
 		visible = true

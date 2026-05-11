@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b3ud7ap3w4ugu" path="res://Scripts/inventory_ui.gd" id="1_ne75i"]
 [ext_resource type="Texture2D" uid="uid://c6ru66tapnkb3" path="res://Textures/Joey Face.png" id="2_bytes"]
 [ext_resource type="Shader" uid="uid://bvq1pqsit7ru7" path="res://Shaders/ecg_monitor.gdshader" id="3_b1lf8"]
+[ext_resource type="Texture2D" uid="uid://bv10wn3xpqiqv" path="res://Textures/Stomach_Outline.png" id="4_0j753"]
+[ext_resource type="Texture2D" uid="uid://royjoqg8niao" path="res://Textures/Stomach_Inline.png" id="5_i0a73"]
 [ext_resource type="Texture2D" uid="uid://cfg0l77e6qdsv" path="res://Textures/Hover_Gradient_White.png" id="5_rnl6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rnl6m"]
@@ -147,27 +149,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Status/StatusPanel" unique_id=809940270]
+[node name="HungerIndicator" type="TextureProgressBar" parent="Status/StatusPanel" unique_id=809940270]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -400.0
-offset_bottom = -80.0
+offset_left = -3.000002
+offset_top = 13.999996
+offset_right = -347.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="temphungerlabel" type="Label" parent="Status/StatusPanel/TextureProgressBar" unique_id=542301119]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "hunger"
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.8, 0.8)
+fill_mode = 3
+texture_under = ExtResource("4_0j753")
+texture_progress = ExtResource("5_i0a73")
 
 [node name="FacePanel" type="Panel" parent="Status/StatusPanel" unique_id=643938498]
 layout_mode = 1
