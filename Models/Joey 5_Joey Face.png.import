@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ru66tapnkb3"
-path.s3tc="res://.godot/imported/Joey Face.png-398b09d43cabca43a799aa0709679ca7.s3tc.ctex"
+uid="uid://d36mdc5pc0rf7"
+path.s3tc="res://.godot/imported/Joey 5_Joey Face.png-c312bbb27b5e0a6dc2b590de3b79af12.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "017a342cbfdfa8953f9856b61e3923cd"
+}
 
 [deps]
 
-source_file="res://Textures/Joey Face.png"
-dest_files=["res://.godot/imported/Joey Face.png-398b09d43cabca43a799aa0709679ca7.s3tc.ctex"]
+source_file="res://Models/Joey 5_Joey Face.png"
+dest_files=["res://.godot/imported/Joey 5_Joey Face.png-c312bbb27b5e0a6dc2b590de3b79af12.s3tc.ctex"]
 
 [params]
 

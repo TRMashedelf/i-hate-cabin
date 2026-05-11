@@ -57,7 +57,9 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
 		HUD.visible = !HUD.visible
-		get_tree().paused = !get_tree().paused
+	elif event.is_action_pressed("escape"):
+		var pause_menu = HUD.PauseMenu
+		pause_menu.visible = !pause_menu.visible
 
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
