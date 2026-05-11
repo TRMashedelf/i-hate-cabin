@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://1eu3vi8o3xc2"]
 
+[ext_resource type="Script" uid="uid://cgpwe3bxv3j66" path="res://Scripts/hud.gd" id="1_2o5uh"]
 [ext_resource type="Script" uid="uid://b3ud7ap3w4ugu" path="res://Scripts/inventory_ui.gd" id="1_ne75i"]
+[ext_resource type="Texture2D" uid="uid://c6ru66tapnkb3" path="res://Textures/Joey Face.png" id="2_bytes"]
+[ext_resource type="Shader" uid="uid://bvq1pqsit7ru7" path="res://Shaders/ecg_monitor.gdshader" id="3_b1lf8"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ne75i"]
-font_size = 72
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnl6m"]
+shader = ExtResource("3_b1lf8")
+shader_parameter/health = 1.0
+shader_parameter/time_offset = 0.0
 
 [node name="HUD" type="Control" unique_id=1511806409]
 layout_mode = 3
@@ -13,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_2o5uh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory_UI" type="Control" parent="." unique_id=524385987]
@@ -22,6 +28,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1320.0
 offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ne75i")
 
@@ -73,6 +81,15 @@ grow_vertical = 0
 mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
+[node name="ECG" type="ColorRect" parent="Status/StatusPanel/HealthIndicator" unique_id=599555987]
+material = SubResource("ShaderMaterial_rnl6m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Status/StatusPanel" unique_id=809940270]
 layout_mode = 1
 anchors_preset = 15
@@ -94,14 +111,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Placeholder Face" type="Label" parent="Status/StatusPanel/FacePanel" unique_id=1867511122]
+[node name="TextureRect" type="TextureRect" parent="Status/StatusPanel/FacePanel" unique_id=1436488141]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Face"
-label_settings = SubResource("LabelSettings_ne75i")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_bytes")

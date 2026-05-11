@@ -5,6 +5,11 @@ const SPRINT_SPEED = 4.5
 const TURN_SPEED = 5.0
 const SPRINT_TURN_SPEED = 10.0
 
+var max_health: float = 100.0
+var current_health: float = 100.0
+var max_hunger: float = 100.0
+var current_hunger: float = 100.0
+
 @onready var HUD = $HUD
 
 @export var camera: Camera3D = null
@@ -54,3 +59,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
+
+func get_health_normalized() -> float:
+	return clampf(current_health / max_health, 0.0, 1.0)

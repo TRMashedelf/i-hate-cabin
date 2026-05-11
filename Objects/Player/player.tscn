@@ -19,5 +19,5 @@ shape = SubResource("CapsuleShape3D_tbugw")
 process_mode = 3
 visible = false
 
-[node name="Joey 5" parent="." unique_id=2058127003 instance=ExtResource("3_l2ya6")]
+[node name="Joey 5" parent="." unique_id=1605397837 instance=ExtResource("3_l2ya6")]
 transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, 0, -0.867988, 0)
