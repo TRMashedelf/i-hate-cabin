@@ -7,6 +7,7 @@ var player = Global.player_node
 @onready var PauseMenu = $PauseMenu
 @onready var InventoryUI = $Inventory_UI
 @onready var SnowGenerator = $PauseMenu/Background/SnowGenerator
+@onready var FlameGenerator = $PauseMenu/Background/TextureRect/FlameGenerator
 
 var shader_mat: ShaderMaterial
 var elapsed: float = 0.0
@@ -21,14 +22,17 @@ func _process(delta: float) -> void:
 	if PauseMenu.visible == true:
 		InventoryUI.visible = false
 		SnowGenerator.emitting = true
+		FlameGenerator.emitting = true
 		visible = true
 		get_tree().paused = true
 	elif PauseMenu.visible == false and self.visible == true:
 		InventoryUI.visible = true
 		SnowGenerator.emitting = false
+		FlameGenerator.emitting = false
 		get_tree().paused = true
 	else:
 		SnowGenerator.emitting = false
+		FlameGenerator.emitting = false
 		get_tree().paused = false
 	elapsed += delta
 	shader_mat.set_shader_parameter("time_offset", elapsed)

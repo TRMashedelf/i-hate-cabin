@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bv10wn3xpqiqv" path="res://Textures/Stomach_Outline.png" id="4_0j753"]
 [ext_resource type="Texture2D" uid="uid://royjoqg8niao" path="res://Textures/Stomach_Inline.png" id="5_i0a73"]
 [ext_resource type="Texture2D" uid="uid://cfg0l77e6qdsv" path="res://Textures/Hover_Gradient_White.png" id="5_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://cxo27d8aaxofd" path="res://Textures/PauseBackground.png" id="8_i0a73"]
+[ext_resource type="Texture2D" uid="uid://bd3ldcgiq0usp" path="res://Textures/fire.png" id="9_pf7ph"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rnl6m"]
 shader = ExtResource("3_b1lf8")
@@ -50,6 +52,24 @@ color_ramp = SubResource("GradientTexture1D_i0a73")
 collision_mode = 1
 collision_friction = 1.0
 collision_bounce = 0.0
+
+[sub_resource type="Gradient" id="Gradient_dlgdw"]
+colors = PackedColorArray(0.98934776, 1, 0.68772775, 1, 0.827451, 0.15686275, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vs5gg"]
+gradient = SubResource("Gradient_dlgdw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_23s3h"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = -1.0
+initial_velocity_max = -1.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture1D_vs5gg")
 
 [node name="HUD" type="Control" unique_id=1511806409]
 process_mode = 3
@@ -346,6 +366,23 @@ preprocess = 20.0
 fixed_fps = 24
 visibility_rect = Rect2(0, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_0j753")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/Background" unique_id=2088806686]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_i0a73")
+
+[node name="FlameGenerator" type="GPUParticles2D" parent="PauseMenu/Background/TextureRect" unique_id=1965120997]
+position = Vector2(1578, 802)
+texture = ExtResource("9_pf7ph")
+lifetime = 2.0
+preprocess = 0.5
+process_material = SubResource("ParticleProcessMaterial_23s3h")
 
 [connection signal="pressed" from="PauseMenu/Background/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Background/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

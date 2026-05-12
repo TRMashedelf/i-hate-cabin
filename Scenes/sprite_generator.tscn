@@ -1,17 +1,123 @@
 [gd_scene format=3 uid="uid://b32apsfavmx6x"]
 
 [ext_resource type="Script" uid="uid://m1wevtkvjjpc" path="res://Scripts/sprite_generator.gd" id="1_ub6vh"]
-[ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_ub6vh"]
+[ext_resource type="PackedScene" uid="uid://c8thw8vhgqvy8" path="res://Objects/Structures/Cabin_1.tscn" id="2_sg4cb"]
+[ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="3_deoow"]
+[ext_resource type="Texture2D" uid="uid://bd3ldcgiq0usp" path="res://Textures/fire.png" id="4_w4f03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gia4d"]
+transparency = 1
+albedo_color = Color(0, 0.9655588, 0.97583324, 0.07058824)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtf1s"]
+albedo_texture = ExtResource("3_deoow")
+uv1_scale = Vector3(2.385, 2.385, 2.385)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ywl4"]
+albedo_color = Color(0.45452422, 0.45452428, 0.45452416, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvvqo"]
+albedo_color = Color(0.9635983, 0.6492231, 0.23405626, 1)
+metallic_specular = 0.74
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sj3c"]
+albedo_color = Color(0.0932874, 0.044118717, 0.0017819508, 1)
+metallic_specular = 0.0
+
+[sub_resource type="Gradient" id="Gradient_dlgdw"]
+colors = PackedColorArray(0.98934776, 1, 0.68772775, 1, 0.827451, 0.15686275, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t134j"]
+gradient = SubResource("Gradient_dlgdw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q3t5p"]
+lifetime_randomness = 0.2
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_max = 0.01
+gravity = Vector3(0, 0, 0)
+damping_min = 0.001
+damping_max = 0.001
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture1D_t134j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c73a6"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_w4f03")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7fl0"]
+material = SubResource("StandardMaterial3D_c73a6")
+size = Vector2(0.05, 0.05)
 
 [node name="SpriteGenerator" type="SubViewport" unique_id=1416220504]
 transparent_bg = true
-size = Vector2i(128, 128)
+size = Vector2i(1920, 1080)
 script = ExtResource("1_ub6vh")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1633828397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02064915, 0.3095648, 2.2095776)
-projection = 1
-size = 0.265
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057133928, 0.552767, 1.9930768)
+fov = 52.5
+size = 1.49
 
-[node name="Player" parent="." unique_id=1036565057 instance=ExtResource("2_ub6vh")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0.04922092, -0.46679282, 0.2560351)
+[node name="Cabin1" parent="." unique_id=1653363661 instance=ExtResource("2_sg4cb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.9364166, 6.328503)
+
+[node name="Glass" type="CSGBox3D" parent="Cabin1" unique_id=1815267187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.877362, 1.4236441, -0.049712874)
+size = Vector3(0.15698242, 1.2353821, 2.3613892)
+material = SubResource("StandardMaterial3D_gia4d")
+
+[node name="Desk" type="CSGBox3D" parent="Cabin1" unique_id=25405786]
+transform = Transform3D(1, 1.02486185e-19, -4.935252e-11, 0, 1, 2.076615e-09, 4.935252e-11, -2.076615e-09, 1, 5.6909885, 0.44677103, 0.005920659)
+size = Vector3(0.42956543, 0.9511719, 3.1729736)
+material = SubResource("StandardMaterial3D_dtf1s")
+
+[node name="CandleBase" type="CSGCylinder3D" parent="Cabin1" unique_id=1457007328]
+transform = Transform3D(1, 1.02486185e-19, -4.935252e-11, 0, 1, 2.076615e-09, 4.935252e-11, -2.076615e-09, 1, 5.6170487, 0.9279185, 0.7829666)
+radius = 0.075
+height = 0.025
+sides = 32
+material = SubResource("StandardMaterial3D_0ywl4")
+
+[node name="Candle" type="CSGCylinder3D" parent="Cabin1/CandleBase" unique_id=1001579910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1123606, 0)
+radius = 0.025
+height = 0.2
+sides = 32
+material = SubResource("StandardMaterial3D_nvvqo")
+
+[node name="CandleWick" type="CSGCylinder3D" parent="Cabin1/CandleBase/Candle" unique_id=1265022283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1029942, 0)
+radius = 0.002
+height = 0.025
+sides = 32
+material = SubResource("StandardMaterial3D_7sj3c")
+
+[node name="Flame" type="GPUParticles3D" parent="Cabin1/CandleBase/Candle/CandleWick" unique_id=1368319571]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.030175298, 0)
+amount = 4
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_q3t5p")
+draw_pass_1 = SubResource("QuadMesh_f7fl0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cabin1/CandleBase/Candle/CandleWick" unique_id=1908942023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038036346, 0)
+light_color = Color(0.8862745, 0.34509805, 0.13333334, 1)
+light_energy = 0.5
+light_size = 0.1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cabin1" unique_id=289895902]
+transform = Transform3D(0.978822, 0.048136167, 0.19897361, -0.19628087, 0.49676967, 0.84539574, -0.05814993, -0.8665466, 0.49569723, 6.852873, 0, 2.9954856e-07)
+light_color = Color(0.76528347, 0.99999994, 0.9999934, 1)
+light_energy = 0.1
+sky_mode = 1
