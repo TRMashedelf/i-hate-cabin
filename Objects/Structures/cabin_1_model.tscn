@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bhtvw17pmp1b0"]
+
+[ext_resource type="PackedScene" uid="uid://b5jxnatnbbkrk" path="res://Models/Cabin_1.glb" id="1_fn8gw"]
+[ext_resource type="Texture2D" uid="uid://c5hg6b1spvlo3" path="res://Textures/wood1.png" id="2_8i312"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoec6"]
+albedo_color = Color(0.796243, 0.796243, 0.796243, 1)
+albedo_texture = ExtResource("2_8i312")
+metallic_specular = 0.2
+uv1_scale = Vector3(5.225, 5.225, 5.225)
+uv1_triplanar = true
+
+[node name="Cabin_1_model" unique_id=1183756314 instance=ExtResource("1_fn8gw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Cabin_1" parent="." index="0" unique_id=810441680]
+surface_material_override/0 = SubResource("StandardMaterial3D_qoec6")

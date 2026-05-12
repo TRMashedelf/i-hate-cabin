@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://b32apsfavmx6x"]
 
-[ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="1_ln2jc"]
 [ext_resource type="Script" uid="uid://m1wevtkvjjpc" path="res://Scripts/sprite_generator.gd" id="1_ub6vh"]
+[ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="2_ub6vh"]
 
 [node name="SpriteGenerator" type="SubViewport" unique_id=1416220504]
 transparent_bg = true
-size = Vector2i(140, 140)
+size = Vector2i(128, 128)
 script = ExtResource("1_ub6vh")
 
-[node name="ChineseBacon" parent="." unique_id=868920180 instance=ExtResource("1_ln2jc")]
-transform = Transform3D(0.8961769, 0.18325084, -0.40408674, -0.443697, 0.37012917, -0.8161725, 0, 0.910727, 0.41300908, 0, 0, 0.789014)
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1633828397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2439563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02064915, 0.3095648, 2.2095776)
 projection = 1
-size = 0.425
+size = 0.265
+
+[node name="Player" parent="." unique_id=1036565057 instance=ExtResource("2_ub6vh")]
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0.04922092, -0.46679282, 0.2560351)

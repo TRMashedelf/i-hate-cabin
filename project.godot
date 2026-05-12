@@ -14,7 +14,7 @@ config/name="I Hate Cabins"
 config/version="0.0.1"
 run/main_scene="uid://cx1k1xclrks1m"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c8ixf6mljkn57"
 
 [autoload]
 
@@ -24,6 +24,10 @@ Global="*uid://bt2escad62c3n"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global_group]
 
