@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b5jxnatnbbkrk" path="res://Models/Cabin_1.glb" id="1_fn8gw"]
 [ext_resource type="Texture2D" uid="uid://c5hg6b1spvlo3" path="res://Textures/wood1.png" id="2_8i312"]
+[ext_resource type="Texture2D" uid="uid://dfq743d2g8jul" path="res://Textures/Wood2.png" id="3_qoec6"]
+[ext_resource type="Texture2D" uid="uid://bqptkklop1pg" path="res://Textures/Wood3.png" id="4_qxxog"]
+[ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="4_sl2ke"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoec6"]
 albedo_color = Color(0.796243, 0.796243, 0.796243, 1)
@@ -10,8 +13,37 @@ metallic_specular = 0.2
 uv1_scale = Vector3(5.225, 5.225, 5.225)
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llsa0"]
+albedo_color = Color(0.3207803, 0.12310169, 0.017812109, 1)
+albedo_texture = ExtResource("2_8i312")
+uv1_scale = Vector3(0.325, 0.325, 0.325)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl2ke"]
+albedo_texture = ExtResource("3_qoec6")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sa7u"]
+albedo_texture = ExtResource("4_sl2ke")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_offset = Vector3(0, -0.165, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxxog"]
+albedo_texture = ExtResource("4_qxxog")
+metallic_specular = 0.3
+uv1_scale = Vector3(2.165, 2.165, 2.165)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [node name="Cabin_1_model" unique_id=1183756314 instance=ExtResource("1_fn8gw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Cabin_1" parent="." index="0" unique_id=810441680]
 surface_material_override/0 = SubResource("StandardMaterial3D_qoec6")
+surface_material_override/1 = SubResource("StandardMaterial3D_llsa0")
+surface_material_override/2 = SubResource("StandardMaterial3D_sl2ke")
+surface_material_override/3 = SubResource("StandardMaterial3D_6sa7u")
+surface_material_override/4 = SubResource("StandardMaterial3D_qxxog")
