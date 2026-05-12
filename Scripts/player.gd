@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 const SPEED = 2.3
-const SPRINT_SPEED = 4.5
+const SPRINT_SPEED = 3.5
 const TURN_SPEED = 5.0
-const SPRINT_TURN_SPEED = 10.0
+const SPRINT_TURN_SPEED = 8.0
 
 @export var max_health: float = 100.0
 @export var current_health: float = 100.0
@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	var effective_turn_speed: float
 	if abs(move_input) > 0.0:
-		effective_turn_speed = current_turn_speed * 0.4
+		effective_turn_speed = current_turn_speed * 0.6
 	else:
 		effective_turn_speed = current_turn_speed * 1.2
 

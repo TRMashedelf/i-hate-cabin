@@ -14,7 +14,7 @@ shader_parameter/health = 1.0
 shader_parameter/time_offset = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1lf8"]
-bg_color = Color(0, 0.078431375, 0.9137255, 1)
+bg_color = Color(0.09803922, 0.09803922, 0.4392157, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1lf8"]
 
@@ -26,6 +26,30 @@ texture = ExtResource("5_rnl6m")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ui3w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j753"]
+
+[sub_resource type="Gradient" id="Gradient_0j753"]
+offsets = PackedFloat32Array(0.008196721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i0a73"]
+gradient = SubResource("Gradient_0j753")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0j753"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1200, 1, 1)
+gravity = Vector3(10, 20, 0)
+radial_accel_min = -1.0000023
+radial_accel_max = -1.0000023
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 2.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_i0a73")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
 
 [node name="HUD" type="Control" unique_id=1511806409]
 process_mode = 3
@@ -212,6 +236,7 @@ offset_left = -250.0
 offset_right = 250.0
 offset_bottom = 150.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6509804, 0.6745098, 0.72156864, 1)
 theme_override_font_sizes/font_size = 76
 text = "Paused"
 horizontal_alignment = 1
@@ -236,6 +261,7 @@ alignment = 1
 [node name="ResumeButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=404123295]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.6745098, 0.72156864, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b1lf8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
@@ -255,6 +281,7 @@ color = Color(0, 0, 0, 1)
 [node name="OptionsButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=1469147558]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.6745098, 0.72156864, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rnl6m")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
@@ -274,6 +301,7 @@ color = Color(0, 0, 0, 1)
 [node name="LoadButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=601964222]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.6745098, 0.72156864, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1ui3w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
@@ -293,6 +321,7 @@ color = Color(0, 0, 0, 1)
 [node name="QuitButton" type="Button" parent="PauseMenu/Background/VBoxContainer" unique_id=1257773880]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.6745098, 0.72156864, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0j753")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1ui3w")
@@ -308,6 +337,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
+
+[node name="SnowGenerator" type="GPUParticles2D" parent="PauseMenu/Background" unique_id=360835201]
+position = Vector2(808, 3)
+amount = 150
+lifetime = 20.0
+preprocess = 20.0
+fixed_fps = 24
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_0j753")
 
 [connection signal="pressed" from="PauseMenu/Background/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Background/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
