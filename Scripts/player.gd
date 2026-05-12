@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const SPEED = 2.3
-const SPRINT_SPEED = 3.5
+const SPEED = 1.3
+const SPRINT_SPEED = 2.5
 const TURN_SPEED = 5.0
-const SPRINT_TURN_SPEED = 8.0
+const SPRINT_TURN_SPEED = 6.0
 
 @export var max_health: float = 100.0
 @export var current_health: float = 100.0

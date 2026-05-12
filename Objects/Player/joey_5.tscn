@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://jrtx4vmoj4yd" path="res://Models/Joey 5.glb" id="1_x0pf2"]
 [ext_resource type="Texture2D" uid="uid://hv6qnirfevkm" path="res://Textures/Brown_hair.png" id="2_6s3ou"]
 [ext_resource type="Texture2D" uid="uid://d36mdc5pc0rf7" path="res://Models/Joey 5_Joey Face.png" id="2_puksg"]
-[ext_resource type="Texture2D" uid="uid://duajpdm2bkwm0" path="res://Textures/jacket.png" id="3_2d0qy"]
-[ext_resource type="Texture2D" uid="uid://doiwugbo81bvg" path="res://Textures/Wool_texture.png" id="3_dic8v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d0qy"]
 albedo_color = Color(0.47397572, 0.47397578, 0.4739756, 1)
@@ -13,22 +11,8 @@ metallic_specular = 0.0
 uv1_scale = Vector3(0.18, 0.18, 0.18)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72v01"]
-albedo_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
-albedo_texture = ExtResource("3_2d0qy")
-metallic_specular = 0.0
-uv1_scale = Vector3(0.008, 0.008, 0.008)
-uv1_offset = Vector3(1.63, 0.615, -0.28)
-uv1_triplanar = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dic8v"]
 albedo_texture = ExtResource("2_puksg")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s3ou"]
-albedo_texture = ExtResource("3_dic8v")
-metallic_specular = 0.0
-uv1_scale = Vector3(0.14, 0.14, 0.14)
-uv1_triplanar = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_puksg"]
 animation = &"idle"
@@ -786,9 +770,9 @@ _data = {
 &"walk": SubResource("Animation_dic8v")
 }
 
-[node name="Joey 5" unique_id=357027493 instance=ExtResource("1_x0pf2")]
+[node name="Joey 5" unique_id=1422235794 instance=ExtResource("1_x0pf2")]
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(871111651) index="0" unique_id=1320275099]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1966915320) index="0" unique_id=1950774556]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 bones/1/rotation = Quaternion(-0.038671438, 0, 0, 0.999252)
 bones/4/rotation = Quaternion(0.038671464, 0, 0, 0.999252)
@@ -797,17 +781,11 @@ bones/16/rotation = Quaternion(0.37980315, 0.0067122267, -0.0027560126, 0.925038
 bones/29/rotation = Quaternion(0.051721897, 0.0010586523, 0.020336512, 0.998454)
 bones/31/rotation = Quaternion(0.33822536, -0.044364788, 0.015965061, 0.9398833)
 
-[node name="Hair" parent="Armature/Skeleton3D" index="0" unique_id=2099755726]
+[node name="Hair" parent="Armature/Skeleton3D" index="0" unique_id=883611403]
 surface_material_override/0 = SubResource("StandardMaterial3D_2d0qy")
 
-[node name="Jacket" parent="Armature/Skeleton3D" index="1" unique_id=566632513]
-surface_material_override/1 = SubResource("StandardMaterial3D_72v01")
-
-[node name="Joey" parent="Armature/Skeleton3D" index="2" unique_id=629291581]
+[node name="Joey" parent="Armature/Skeleton3D" index="2" unique_id=108620096]
 surface_material_override/4 = SubResource("StandardMaterial3D_dic8v")
-
-[node name="Wool" parent="Armature/Skeleton3D" index="4" unique_id=234432851]
-surface_material_override/0 = SubResource("StandardMaterial3D_6s3ou")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="81" unique_id=1516861910]
 tree_root = SubResource("AnimationNodeStateMachine_2d0qy")
