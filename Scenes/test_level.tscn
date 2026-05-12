@@ -253,7 +253,7 @@ item_icon_texture = ExtResource("7_xq3o0")
 item_description = "Restores a small portion of hunger"
 
 [node name="Player" parent="." unique_id=1036565057 instance=ExtResource("2_eglq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3234673, 1.025, -2.8368587)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.3234673, 1.025, -2.8368587)
 
 [connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="exit_trigger"]

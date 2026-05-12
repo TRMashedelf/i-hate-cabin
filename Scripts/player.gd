@@ -64,30 +64,29 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
 		return
-
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	var sprinting := Input.is_action_pressed("sprint")
 	var current_speed := SPRINT_SPEED if sprinting else SPEED
 	var current_turn_speed := SPRINT_TURN_SPEED if sprinting else TURN_SPEED
-	var input_dir := Input.get_vector("left", "right", "backward", "forward")
 
-	if input_dir != Vector2.ZERO and camera:
-		var cam_basis := camera.global_transform.basis
-		var forward := -cam_basis.z
-		var right   := cam_basis.x
-		forward.y = 0.0
-		right.y   = 0.0
-		forward   = forward.normalized()
-		right     = right.normalized()
+	var move_input := Input.get_axis("backward", "forward")  
+	var turn_input := Input.get_axis("left", "right")       
 
-		var direction := (right * input_dir.x + forward * input_dir.y).normalized()
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
+	var effective_turn_speed: float
+	if abs(move_input) > 0.0:
+		effective_turn_speed = current_turn_speed * 0.4
+	else:
+		effective_turn_speed = current_turn_speed * 1.2
 
-		var target_angle := atan2(-direction.x, -direction.z)
-		rotation.y = lerp_angle(rotation.y, target_angle, current_turn_speed * delta)
+	if abs(turn_input) > 0.0:
+		rotation.y -= turn_input * effective_turn_speed * delta
+
+	if abs(move_input) > 0.0:
+		var forward := -global_transform.basis.z.normalized()
+		velocity.x = forward.x * move_input * current_speed
+		velocity.z = forward.z * move_input * current_speed
 
 		if sprinting:
 			_set_state(PlayerState.SPRINT)
