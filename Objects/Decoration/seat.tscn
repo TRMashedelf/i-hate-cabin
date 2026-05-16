@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://djqluqomic3pn"]
+
+[ext_resource type="PackedScene" uid="uid://cy3jhe0puanwu" path="res://Models/Stool.glb" id="1_jkw8j"]
+[ext_resource type="Texture2D" uid="uid://ctf8rgxj1bc8w" path="res://Textures/RedFelt.png" id="2_we77m"]
+[ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="3_ws2sq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocu3c"]
+albedo_color = Color(0.6706895, 0.6706895, 0.6706895, 1)
+albedo_texture = ExtResource("2_we77m")
+metallic_specular = 0.0
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_162v1"]
+albedo_texture = ExtResource("3_ws2sq")
+metallic_specular = 0.1
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhmup"]
+size = Vector3(2, 2, 2)
+
+[node name="Seat" unique_id=804258954 instance=ExtResource("1_jkw8j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Stool" parent="." index="0" unique_id=44134115]
+surface_material_override/0 = SubResource("StandardMaterial3D_ocu3c")
+surface_material_override/1 = SubResource("StandardMaterial3D_162v1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stool" index="0" unique_id=1902422211]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stool/StaticBody3D" index="0" unique_id=728934526]
+shape = SubResource("BoxShape3D_uhmup")
