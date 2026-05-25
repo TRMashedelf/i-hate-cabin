@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dfq743d2g8jul" path="res://Textures/Wood2.png" id="3_qoec6"]
 [ext_resource type="Texture2D" uid="uid://bqptkklop1pg" path="res://Textures/Wood3.png" id="4_qxxog"]
 [ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="4_sl2ke"]
+[ext_resource type="ArrayOccluder3D" uid="uid://ba2ftwd38xd1c" path="res://Occluders/cabin_1_model.occ" id="6_6sa7u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoec6"]
 albedo_color = Color(0.796243, 0.796243, 0.796243, 1)
@@ -55,3 +56,6 @@ surface_material_override/4 = SubResource("StandardMaterial3D_qxxog")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cabin_1/StaticBody3D" index="0" unique_id=1302936242]
 shape = SubResource("ConcavePolygonShape3D_sl2ke")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Cabin_1" index="1" unique_id=873899529]
+occluder = ExtResource("6_6sa7u")

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jnmrkromc2er" path="res://Textures/Metal.png" id="3_i8kwq"]
 [ext_resource type="Texture2D" uid="uid://cxvd70ecy62jh" path="res://Textures/Fire_texture.png" id="4_brvod"]
 [ext_resource type="Texture2D" uid="uid://bd3ldcgiq0usp" path="res://Textures/fire.png" id="5_i8kwq"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dsqjl8ixi4eqn" path="res://Occluders/fireplace.occ" id="6_jtx1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtx1r"]
 albedo_color = Color(0.8646751, 0.86467516, 0.8646751, 1)
@@ -87,6 +88,7 @@ alpha_curve = SubResource("CurveTexture_i8kwq")
 emission_curve = SubResource("CurveTexture_jtx1r")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jtx1r"]
+size = Vector2(0.9, 0.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tamip"]
 transparency = 1
@@ -214,3 +216,6 @@ omni_range = 40.0
 libraries/ = SubResource("AnimationLibrary_vfn8g")
 autoplay = &"Init"
 speed_scale = 0.6
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="3" unique_id=381186808]
+occluder = ExtResource("6_jtx1r")

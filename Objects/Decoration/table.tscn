@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d24tgrlh7i7x1" path="res://Models/Table.glb" id="1_yri2p"]
 [ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="2_6hh76"]
+[ext_resource type="ArrayOccluder3D" uid="uid://brnyvh0y8wxw1" path="res://Occluders/table.occ" id="3_rb7m3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb7m3"]
 albedo_texture = ExtResource("2_6hh76")
@@ -25,3 +26,6 @@ visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=710048897]
 shape = SubResource("BoxShape3D_6hh76")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="1" unique_id=780275035]
+occluder = ExtResource("3_rb7m3")

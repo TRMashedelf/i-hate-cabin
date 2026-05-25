@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="2_s66k7"]
 [ext_resource type="Texture2D" uid="uid://doiwugbo81bvg" path="res://Textures/Wool_texture.png" id="3_bnqct"]
 [ext_resource type="Texture2D" uid="uid://ctf8rgxj1bc8w" path="res://Textures/RedFelt.png" id="4_8no15"]
+[ext_resource type="ArrayOccluder3D" uid="uid://n77u2b14uuvm" path="res://Occluders/bed.occ" id="5_s66k7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7gcw"]
 albedo_color = Color(0.92099476, 0.9209946, 0.9209946, 1)
@@ -63,3 +64,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ctu7g")
 
 [node name="Blanket" parent="." index="3" unique_id=203745337]
 surface_material_override/0 = SubResource("StandardMaterial3D_abawj")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="4" unique_id=1868886716]
+occluder = ExtResource("5_s66k7")
