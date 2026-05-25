@@ -34,6 +34,10 @@ import/blender/enabled=false
 pickup=""
 player=""
 
+[gui]
+
+theme/custom_font="uid://6aq3jvmnnew"
+
 [input]
 
 forward={

@@ -12,28 +12,17 @@ var player = Global.player_node
 var shader_mat: ShaderMaterial
 var elapsed: float = 0.0
 
+var hud_was_open_before_pause := false
 
 
 func _ready() -> void:
 	shader_mat = ecg_display.material as ShaderMaterial
+	visible = false
+	InventoryUI.visible = false
+	PauseMenu.visible = false
 
 func _process(delta: float) -> void:
 	hunger_indicator.value = Global.get_player_hunger()
-	if PauseMenu.visible == true:
-		InventoryUI.visible = false
-		SnowGenerator.emitting = true
-		FlameGenerator.emitting = true
-		visible = true
-		get_tree().paused = true
-	elif PauseMenu.visible == false and self.visible == true:
-		InventoryUI.visible = true
-		SnowGenerator.emitting = false
-		FlameGenerator.emitting = false
-		get_tree().paused = true
-	else:
-		SnowGenerator.emitting = false
-		FlameGenerator.emitting = false
-		get_tree().paused = false
 	elapsed += delta
 	shader_mat.set_shader_parameter("time_offset", elapsed)
 	
@@ -43,6 +32,30 @@ func _process(delta: float) -> void:
 			var h: float = player.get_health_normalized()
 			shader_mat.set_shader_parameter("health", h)
 
+
+func open_pause():
+	hud_was_open_before_pause = InventoryUI.visible
+
+	PauseMenu.visible = true
+	InventoryUI.visible = false
+
+	SnowGenerator.emitting = true
+	FlameGenerator.emitting = true
+
+	visible = true
+	get_tree().paused = true
+
+
+func close_pause():
+	PauseMenu.visible = false
+
+	InventoryUI.visible = hud_was_open_before_pause
+
+	SnowGenerator.emitting = false
+	FlameGenerator.emitting = false
+
+	visible = InventoryUI.visible
+	get_tree().paused = false
 
 func _on_resume_button_pressed() -> void:
 	var event = InputEventAction.new()

@@ -22,7 +22,7 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		var model_item = item_model.instantiate()
 		model.add_child.call_deferred(model_item)
-		popup_item_name.text = item_name
+		popup_item_name.text = "You have picked up " + item_name
 		popup_item_texture.texture = item_icon_texture
 
 
