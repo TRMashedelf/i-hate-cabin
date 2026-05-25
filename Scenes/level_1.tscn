@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfnnt3rfdnte6" path="res://Objects/Pickups/item_pickup.tscn" id="5_evi0p"]
 [ext_resource type="Texture2D" uid="uid://dl6y70hfxopgl" path="res://Textures/Chinese_Bacon_icon.png" id="5_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_lsmp6"]
+[ext_resource type="AudioStream" uid="uid://1gql18mc8fr1" path="res://Audio/Ambience/Wind.mp3" id="8_xrdnt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7p6j4"]
 sky_top_color = Color(0.060112968, 0.082520716, 0.1658214, 1)
@@ -131,6 +132,12 @@ transform = Transform3D(0.4509035, 0.2697478, 0.8508362, -0.8915842, 0.09126818,
 light_color = Color(0.93464565, 0.9509378, 0.9999996, 1)
 light_energy = 0.1
 shadow_enabled = true
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1665081033]
+stream = ExtResource("8_xrdnt")
+volume_db = -15.0
+autoplay = true
+bus = &"Muffle"
 
 [connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="exit_trigger"]

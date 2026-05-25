@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxvd70ecy62jh" path="res://Textures/Fire_texture.png" id="4_brvod"]
 [ext_resource type="Texture2D" uid="uid://bd3ldcgiq0usp" path="res://Textures/fire.png" id="5_i8kwq"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dsqjl8ixi4eqn" path="res://Occluders/fireplace.occ" id="6_jtx1r"]
+[ext_resource type="AudioStream" uid="uid://c5yuhaa1nbodi" path="res://Audio/SFX/fire_crackle_sfx.mp3" id="6_vfn8g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtx1r"]
 albedo_color = Color(0.8646751, 0.86467516, 0.8646751, 1)
@@ -216,6 +217,11 @@ omni_range = 40.0
 libraries/ = SubResource("AnimationLibrary_vfn8g")
 autoplay = &"Init"
 speed_scale = 0.6
+
+[node name="FireCrackle" type="AudioStreamPlayer3D" parent="VFX_Fire" index="4" unique_id=1983122850]
+stream = ExtResource("6_vfn8g")
+volume_db = -22.0
+autoplay = true
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="3" unique_id=381186808]
 occluder = ExtResource("6_jtx1r")
