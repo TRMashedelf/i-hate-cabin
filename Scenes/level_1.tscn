@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://6xxhqjngmv4i" path="res://Scripts/camera_trigger.gd" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="4_6444e"]
 [ext_resource type="PackedScene" uid="uid://cfnnt3rfdnte6" path="res://Objects/Pickups/item_pickup.tscn" id="5_evi0p"]
+[ext_resource type="Texture2D" uid="uid://dl6y70hfxopgl" path="res://Textures/Chinese_Bacon_icon.png" id="5_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_lsmp6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7p6j4"]
@@ -65,6 +66,14 @@ light_energy = 0.18
 shadow_enabled = true
 omni_range = 178.627
 
+[node name="Item_Pickup_Chinese_Bacon" parent="Cabin1" unique_id=942578606 instance=ExtResource("5_evi0p")]
+transform = Transform3D(0.9366233, 0, 0.35033822, 0, 1, 0, -0.35033822, 0, 0.9366233, 1.6246057, 1.0757554, -0.6370428)
+item_type = "food"
+item_name = "Chinese Bacon"
+item_model = ExtResource("6_lsmp6")
+item_icon_texture = ExtResource("5_lsmp6")
+item_description = "Restores a small portion of hunger"
+
 [node name="Cameras" type="Node3D" parent="." unique_id=2003814907]
 
 [node name="Camera1" type="Camera3D" parent="Cameras" unique_id=155598812]
@@ -109,10 +118,6 @@ shape = SubResource("BoxShape3D_lsmp6")
 
 [node name="Player" parent="." unique_id=1036565057 instance=ExtResource("4_6444e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7451752, 4.740246, 3.7885737)
-
-[node name="Item_Pickup" parent="." unique_id=942578606 instance=ExtResource("5_evi0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0594823, 4.9626856, -4.562338)
-item_model = ExtResource("6_lsmp6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394881329]
 transform = Transform3D(0.4509035, 0.2697478, 0.8508362, -0.8915842, 0.09126818, 0.4435625, 0.041995745, -0.95859605, 0.28165606, 0, 0, 0)

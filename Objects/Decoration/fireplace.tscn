@@ -10,6 +10,9 @@ albedo_texture = ExtResource("2_brvod")
 uv1_scale = Vector3(0.415, 0.415, 0.415)
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbmh4"]
+size = Vector3(2, 13.237732, 2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfn8g"]
 albedo_texture = ExtResource("3_i8kwq")
 metallic = 1.0
@@ -24,6 +27,12 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="Fireplace-Chimney" parent="." index="0" unique_id=136259252]
 surface_material_override/0 = SubResource("StandardMaterial3D_jtx1r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Fireplace-Chimney" index="0" unique_id=135557465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.618866, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fireplace-Chimney/StaticBody3D" index="0" unique_id=1078257310]
+shape = SubResource("BoxShape3D_kbmh4")
 
 [node name="Barb" parent="." index="1" unique_id=1304860233]
 surface_material_override/0 = SubResource("StandardMaterial3D_vfn8g")
