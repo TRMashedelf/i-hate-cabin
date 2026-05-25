@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_lsmp6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7p6j4"]
-sky_top_color = Color(0.08627451, 0.11372549, 0.21568628, 1)
-sky_horizon_color = Color(0.1176015, 0.12446424, 0.14995444, 1)
+sky_top_color = Color(0.060112968, 0.082520716, 0.1658214, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.1176015, 0.12446424, 0.14995444, 1)
-energy_multiplier = 0.1
+ground_horizon_color = Color(0, 0, 0, 1)
+sun_angle_max = 0.0
 
 [sub_resource type="Sky" id="Sky_6444e"]
 sky_material = SubResource("ProceduralSkyMaterial_7p6j4")
@@ -56,7 +56,7 @@ omni_range = 40.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Cabin1" unique_id=133416138]
 transform = Transform3D(0.8333334, 0, -1.4210855e-14, 0, 0.8333334, 0, 1.4210855e-14, 0, 0.8333334, -4.0319223, 2.1307275, -1.7881393e-07)
-light_energy = 0.18
+light_energy = 0.12
 shadow_enabled = true
 omni_range = 178.627
 
@@ -122,8 +122,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7451752, 4.740246, 3.788573
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394881329]
 transform = Transform3D(0.4509035, 0.2697478, 0.8508362, -0.8915842, 0.09126818, 0.4435625, 0.041995745, -0.95859605, 0.28165606, 0, 0, 0)
 light_color = Color(0.93464565, 0.9509378, 0.9999996, 1)
-light_energy = 0.3
-light_indirect_energy = 2.0
+light_energy = 0.1
 shadow_enabled = true
 
 [connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfnnt3rfdnte6"]
 
 [ext_resource type="Script" uid="uid://brl7s8cwf7d6n" path="res://Scripts/item_pickup.gd" id="1_be17s"]
+[ext_resource type="AudioStream" uid="uid://ciqr5oe2hgbwu" path="res://Audio/SFX/Pickup.wav" id="2_be17s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1ktxu"]
 radius = 1.0
@@ -34,5 +35,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6311264, 0)
 visible = false
 mesh = SubResource("TextMesh_1ktxu")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1580127761]
+stream = ExtResource("2_be17s")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_3d_finished"]

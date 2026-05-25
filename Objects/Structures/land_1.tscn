@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bhj8lbil0kp8g"]
 
 [ext_resource type="PackedScene" uid="uid://qsx7irns2pgx" path="res://Models/Land1.glb" id="1_0fqrl"]
+[ext_resource type="Material" uid="uid://bwrm4d5r3h7if" path="res://Materials/Snow.tres" id="2_11plb"]
 
-[node name="Land1" unique_id=1062482776 instance=ExtResource("1_0fqrl")]
+[node name="Land1" unique_id=1685800942 instance=ExtResource("1_0fqrl")]
 
-[node name="Cube" parent="." index="1" unique_id=1045857396]
+[node name="Plane" parent="." index="0" unique_id=391642972]
+surface_material_override/0 = ExtResource("2_11plb")
+
+[node name="Cube" parent="." index="1" unique_id=1487402953]
 visible = false
