@@ -53,23 +53,14 @@ environment = SubResource("Environment_evi0p")
 [node name="Cabin1" parent="." unique_id=1653363661 instance=ExtResource("1_8ffim")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19869328, 3.687687, -2.5598505)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Cabin1" unique_id=1420891208]
-transform = Transform3D(1, 0, -1.7763568e-14, 0, 1, 0, 1.7763568e-14, 0, 1, -1.7242174, 0.6405935, -0.39184815)
-light_color = Color(1, 0.6862745, 0.47058824, 1)
-light_energy = 3.445
-light_size = 0.53
-shadow_enabled = true
-shadow_blur = 0.52
-omni_range = 40.0
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="Cabin1" unique_id=133416138]
-transform = Transform3D(0.8333334, 0, -1.4210855e-14, 0, 0.8333334, 0, 1.4210855e-14, 0, 0.8333334, -4.0319223, 2.1307275, -1.7881393e-07)
+transform = Transform3D(1, 0, -1.7053025e-14, 0, 1, 0, 1.7053025e-14, 0, 1, -4.0319223, 2.1307275, -1.7881393e-07)
 light_energy = 0.12
 shadow_enabled = true
 omni_range = 178.627
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Cabin1" unique_id=1919582643]
-transform = Transform3D(0.8333334, 0, -4.2632564e-14, 0, 0.8333334, 0, 4.2632564e-14, 0, 0.8333334, 4.31361, 2.2932189, 2.3841858e-07)
+transform = Transform3D(1, 0, -5.1159076e-14, 0, 1, 0, 5.1159076e-14, 0, 1, 4.31361, 2.2932189, 2.3841858e-07)
 light_energy = 0.18
 shadow_enabled = true
 omni_range = 178.627
