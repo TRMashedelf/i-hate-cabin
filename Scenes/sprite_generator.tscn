@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://m1wevtkvjjpc" path="res://Scripts/sprite_generator.gd" id="1_ub6vh"]
 [ext_resource type="PackedScene" uid="uid://c8thw8vhgqvy8" path="res://Objects/Structures/Cabin_1.tscn" id="2_sg4cb"]
 [ext_resource type="Texture2D" uid="uid://dofnqjqqat2lg" path="res://Textures/Wood4.png" id="3_deoow"]
+[ext_resource type="Material" uid="uid://bqqttvnm8yxe3" path="res://Materials/Glass.tres" id="3_w4f03"]
 [ext_resource type="Texture2D" uid="uid://bd3ldcgiq0usp" path="res://Textures/fire.png" id="4_w4f03"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gia4d"]
-transparency = 1
-albedo_color = Color(0, 0.9655588, 0.97583324, 0.07058824)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtf1s"]
 albedo_texture = ExtResource("3_deoow")
@@ -73,7 +70,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -
 [node name="Glass" type="CSGBox3D" parent="Cabin1" unique_id=1815267187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.877362, 1.4236441, -0.049712874)
 size = Vector3(0.15698242, 1.2353821, 2.3613892)
-material = SubResource("StandardMaterial3D_gia4d")
+material = ExtResource("3_w4f03")
 
 [node name="Desk" type="CSGBox3D" parent="Cabin1" unique_id=25405786]
 transform = Transform3D(1, 1.02486185e-19, -4.935252e-11, 0, 1, 2.076615e-09, 4.935252e-11, -2.076615e-09, 1, 5.6909885, 0.44677103, 0.005920659)

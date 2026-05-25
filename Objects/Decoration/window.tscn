@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://mvwp33aghnsa"]
+
+[ext_resource type="PackedScene" uid="uid://bctu0nymmdmqc" path="res://Models/Window.glb" id="1_bi84m"]
+[ext_resource type="Material" uid="uid://bqqttvnm8yxe3" path="res://Materials/Glass.tres" id="2_lvjsx"]
+[ext_resource type="Texture2D" uid="uid://o5jdb66h10vn" path="res://Textures/frosted glass.png" id="3_kq45c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lvjsx"]
+load_path = "res://.godot/imported/wood1.png-e14cdc49f9065a35c75e56b56e461231.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq45c"]
+albedo_color = Color(0.66547024, 0.28571326, 0.08171248, 1)
+albedo_texture = SubResource("CompressedTexture2D_lvjsx")
+metallic_specular = 0.2
+uv1_scale = Vector3(2.66, 2.66, 2.66)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvjsx"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gmqpr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ew35"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.13725491)
+albedo_texture = ExtResource("3_kq45c")
+metallic_specular = 0.0
+
+[node name="Window" unique_id=1652465409 instance=ExtResource("1_bi84m")]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0, 0, 0)
+
+[node name="Window" parent="." index="0" unique_id=2093982167]
+surface_material_override/0 = ExtResource("2_lvjsx")
+surface_material_override/1 = SubResource("StandardMaterial3D_kq45c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Window" index="0" unique_id=1085162652]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Window/StaticBody3D" index="0" unique_id=531380746]
+shape = SubResource("BoxShape3D_lvjsx")
+
+[node name="frost" type="MeshInstance3D" parent="Window" index="1" unique_id=944087927]
+transform = Transform3D(-4.152582e-08, 0.9499999, 0, -0.95, -4.1525812e-08, 0, 0, 0, 0.95, -0.028631043, 0, 0)
+mesh = SubResource("PlaneMesh_gmqpr")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ew35")

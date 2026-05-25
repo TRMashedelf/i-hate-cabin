@@ -23,19 +23,25 @@ background_mode = 2
 sky = SubResource("Sky_6444e")
 ambient_light_energy = 2.66
 tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
 glow_enabled = true
+glow_bloom = 0.25
+volumetric_fog_density = 0.01
+volumetric_fog_length = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6444e"]
-size = Vector3(6.560665, 4.0859375, 4.729599)
+size = Vector3(5.7051077, 3.4072266, 3.464199)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7p6j4"]
-size = Vector3(5.428524, 4.0859375, 3.614027)
+size = Vector3(5.0482464, 4.0859375, 2.7896152)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_evi0p"]
-size = Vector3(3.016834, 4.0859375, 5.4456854)
+size = Vector3(2.3998966, 4.0859375, 4.944176)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lsmp6"]
-size = Vector3(3.5462646, 2.8875732, 6.6397552)
+size = Vector3(2.71286, 2.8875732, 5.7078514)
 
 [node name="Level_1" type="Node3D" unique_id=1578527304]
 
@@ -45,13 +51,15 @@ environment = SubResource("Environment_evi0p")
 [node name="Land1" parent="." unique_id=1062482776 instance=ExtResource("1_vk57k")]
 
 [node name="Cabin1" parent="." unique_id=1653363661 instance=ExtResource("1_8ffim")]
-transform = Transform3D(-5.2453665e-08, 0, 1.1999999, 0, 1.1999999, 0, -1.1999999, 0, -5.2453665e-08, -0.19869328, 3.687687, -2.5598505)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19869328, 3.687687, -2.5598505)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Cabin1" unique_id=1420891208]
-transform = Transform3D(0.8333334, 0, -1.4210855e-14, 0, 0.8333334, 0, 1.4210855e-14, 0, 0.8333334, -1.5688543, 0.94063497, -0.3918482)
+transform = Transform3D(1, 0, -1.7763568e-14, 0, 1, 0, 1.7763568e-14, 0, 1, -1.7242174, 0.6405935, -0.39184815)
 light_color = Color(1, 0.6862745, 0.47058824, 1)
 light_energy = 3.445
+light_size = 0.53
 shadow_enabled = true
+shadow_blur = 0.52
 omni_range = 40.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Cabin1" unique_id=133416138]
@@ -77,47 +85,51 @@ item_description = "Restores a small portion of hunger"
 [node name="Cameras" type="Node3D" parent="." unique_id=2003814907]
 
 [node name="Camera1" type="Camera3D" parent="Cameras" unique_id=155598812]
-transform = Transform3D(0.8249788, 0.054522377, -0.56252766, -0.0018786686, 0.9955948, 0.09374176, 0.56516063, -0.07627816, 0.82144696, -2.198882, 5.76979, 4.331042)
+transform = Transform3D(0.8249788, 0.054522377, -0.56252766, -0.0018786686, 0.9955948, 0.09374175, 0.56516063, -0.07627816, 0.82144696, -1.5510194, 5.4107294, 3.0196118)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera1" unique_id=1167900954]
+transform = Transform3D(0.99999994, 0, 2.9802322e-08, 0, 0.99999994, -7.450581e-09, -8.940697e-08, 7.450581e-09, 0.99999994, 0.20602131, 0.22212267, 1.4753697)
 script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera1/Area3D" unique_id=1247842712]
-transform = Transform3D(0.80981517, -0.003629461, 0.5866746, 0.053891994, 0.9962173, -0.06822682, -0.5842066, 0.08687088, 0.8069181, 0.3940941, -0.26167488, -3.0578516)
+transform = Transform3D(0.80981517, -0.003629422, 0.5866746, 0.053891994, 0.9962044, -0.06822682, -0.5842066, 0.08687091, 0.8069181, 0.040172637, -0.5616231, -3.5393515)
 shape = SubResource("BoxShape3D_6444e")
 
 [node name="Camera2" type="Camera3D" parent="Cameras" unique_id=531009753]
-transform = Transform3D(-0.6879445, 0.033082627, -0.72500896, 0.0198216, 0.99944437, 0.026797028, 0.7254926, 0.004064027, -0.68821806, -3.059907, 5.505359, -5.2880063)
+transform = Transform3D(-0.6879445, 0.033082623, -0.72500896, 0.0198216, 0.99944437, 0.026797025, 0.7254926, 0.004064028, -0.68821806, -2.4880354, 5.2690325, -5.023697)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera2" unique_id=1183249636]
+transform = Transform3D(0.99999994, 1.3969839e-09, 2.9802322e-08, 0, 1, 1.3969839e-09, 0, -5.355105e-09, 1, 0.20634568, 0.21620226, 0.6028476)
 script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera2/Area3D" unique_id=2076943610]
-transform = Transform3D(0.6922681, 0.05586557, 0.7194699, -0.0067894175, 0.9974654, -0.07091858, -0.72160983, 0.0442122, 0.6908704, 0.63739955, -0.32997608, -2.525782)
+transform = Transform3D(0.6922681, 0.05586557, 0.7194699, -0.0067900936, 0.9974654, -0.07091858, -0.72160983, 0.0442122, 0.6908704, 0.671563, -0.32166147, -2.7565804)
 shape = SubResource("BoxShape3D_7p6j4")
 
 [node name="Camera3" type="Camera3D" parent="Cameras" unique_id=1632000233]
-transform = Transform3D(0.897849, 0.050261755, -0.43742537, 0.004409872, 0.99238706, 0.12308044, 0.44028148, -0.11243662, 0.890792, -0.6043687, 5.9077415, -1.2072747)
+transform = Transform3D(0.897849, 0.05026174, -0.43742537, 0.004409872, 0.99238694, 0.12308041, 0.44028148, -0.11243661, 0.89079195, -0.6043687, 5.384377, -1.3813052)
 
 [node name="Area3D" type="Area3D" parent="Cameras/Camera3" unique_id=311159714]
+transform = Transform3D(1, 3.7252903e-09, 0, 3.7252903e-09, 0.99999994, 7.450581e-09, 0, 0, 0.9999999, 0.07893038, 0.4998126, 0.21944094)
 script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Area3D" unique_id=1006575177]
-transform = Transform3D(0.8743427, 0.014380039, 0.48512322, 0.051651873, 0.9911445, -0.12246839, -0.4825851, 0.13213673, 0.8658102, 1.2106205, -0.28777504, -2.8740888)
+transform = Transform3D(0.87436086, 0.014380039, 0.4851289, 0.051651932, 0.9911445, -0.12247263, -0.4825859, 0.13213673, 0.8658086, 1.0780324, -0.3383212, -2.4805112)
 shape = SubResource("BoxShape3D_evi0p")
 
-[node name="Camera3" type="Camera3D" parent="Cameras/Camera3" unique_id=1705564079]
-transform = Transform3D(-0.011265814, -0.036216233, 0.9992806, 0.12812512, 0.991054, 0.037362557, -0.9916941, 0.12845385, -0.006524861, 0.88168395, 0.64923143, -6.4801593)
+[node name="Camera4" type="Camera3D" parent="Cameras" unique_id=1705564079]
+transform = Transform3D(0.43011692, -0.038893577, 0.90193504, 0.0050418973, 0.9991595, 0.04068173, -0.90275913, -0.012950437, 0.42995146, 2.485078, 5.3502016, -6.2665033)
 
-[node name="Area3D" type="Area3D" parent="Cameras/Camera3/Camera3" unique_id=591054548]
+[node name="Area3D" type="Area3D" parent="Cameras/Camera4" unique_id=591054548]
+transform = Transform3D(1, -1.8626451e-09, -2.9802322e-08, 0, 1, -1.3969839e-09, -2.9802322e-08, 1.8626451e-09, 1, 0.6063075, 0.39080238, 0.3590126)
 script = ExtResource("4_7p6j4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Camera3/Area3D" unique_id=1234791093]
-transform = Transform3D(0.8901586, 0.006837348, 0.45553145, 0.003668177, 0.999701, -0.022175647, -0.45555997, 0.021408338, 0.88991886, -0.31622505, -0.18514729, -3.4035358)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera4/Area3D" unique_id=1234791093]
+transform = Transform3D(0.8901555, 0.0068370234, 0.45553154, 0.0036681825, 0.99967366, -0.022176068, -0.45555893, 0.021407422, 0.8899062, -1.2188449, -0.4935956, -3.0385423)
 shape = SubResource("BoxShape3D_lsmp6")
 
 [node name="Player" parent="." unique_id=1036565057 instance=ExtResource("4_6444e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7451752, 4.740246, 3.7885737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2729353, 4.740246, 2.7605376)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394881329]
 transform = Transform3D(0.4509035, 0.2697478, 0.8508362, -0.8915842, 0.09126818, 0.4435625, 0.041995745, -0.95859605, 0.28165606, 0, 0, 0)
@@ -131,5 +143,5 @@ shadow_enabled = true
 [connection signal="body_exited" from="Cameras/Camera2/Area3D" to="Cameras/Camera2/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Cameras/Camera3/Camera3/Area3D" to="Cameras/Camera3/Camera3/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Cameras/Camera3/Camera3/Area3D" to="Cameras/Camera3/Camera3/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera4/Area3D" to="Cameras/Camera4/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera4/Area3D" to="Cameras/Camera4/Area3D" method="exit_trigger"]
