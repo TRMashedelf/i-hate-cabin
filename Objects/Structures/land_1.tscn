@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bhj8lbil0kp8g"]
+
+[ext_resource type="PackedScene" uid="uid://qsx7irns2pgx" path="res://Models/Land1.glb" id="1_0fqrl"]
+
+[node name="Land1" unique_id=1062482776 instance=ExtResource("1_0fqrl")]
+
+[node name="Cube" parent="." index="1" unique_id=1045857396]
+visible = false

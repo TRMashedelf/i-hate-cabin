@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bcaynb07vsdxf"]
+
+[ext_resource type="PackedScene" uid="uid://c8thw8vhgqvy8" path="res://Objects/Structures/Cabin_1.tscn" id="1_8ffim"]
+[ext_resource type="PackedScene" uid="uid://bhj8lbil0kp8g" path="res://Objects/Structures/land_1.tscn" id="1_vk57k"]
+[ext_resource type="Script" uid="uid://6xxhqjngmv4i" path="res://Scripts/camera_trigger.gd" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://brcqxuihp30lv" path="res://Objects/Player/player.tscn" id="4_6444e"]
+[ext_resource type="PackedScene" uid="uid://cfnnt3rfdnte6" path="res://Objects/Pickups/item_pickup.tscn" id="5_evi0p"]
+[ext_resource type="PackedScene" uid="uid://251c6lpiumf4" path="res://Objects/Pickups/chinese_bacon.tscn" id="6_lsmp6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7p6j4"]
+sky_top_color = Color(0.08627451, 0.11372549, 0.21568628, 1)
+sky_horizon_color = Color(0.1176015, 0.12446424, 0.14995444, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.1176015, 0.12446424, 0.14995444, 1)
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_6444e"]
+sky_material = SubResource("ProceduralSkyMaterial_7p6j4")
+
+[sub_resource type="Environment" id="Environment_evi0p"]
+background_mode = 2
+sky = SubResource("Sky_6444e")
+ambient_light_energy = 2.66
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6444e"]
+size = Vector3(6.560665, 4.0859375, 4.729599)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7p6j4"]
+size = Vector3(5.428524, 4.0859375, 3.614027)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_evi0p"]
+size = Vector3(3.016834, 4.0859375, 5.4456854)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsmp6"]
+size = Vector3(3.5462646, 2.8875732, 6.6397552)
+
+[node name="Level_1" type="Node3D" unique_id=1578527304]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1541403820]
+environment = SubResource("Environment_evi0p")
+
+[node name="Land1" parent="." unique_id=1062482776 instance=ExtResource("1_vk57k")]
+
+[node name="Cabin1" parent="." unique_id=1653363661 instance=ExtResource("1_8ffim")]
+transform = Transform3D(-5.2453665e-08, 0, 1.1999999, 0, 1.1999999, 0, -1.1999999, 0, -5.2453665e-08, -0.19869328, 3.687687, -2.5598505)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cabin1" unique_id=1420891208]
+transform = Transform3D(0.8333334, 0, -1.4210855e-14, 0, 0.8333334, 0, 1.4210855e-14, 0, 0.8333334, -1.5688543, 0.94063497, -0.3918482)
+light_color = Color(1, 0.6862745, 0.47058824, 1)
+light_energy = 3.445
+shadow_enabled = true
+omni_range = 40.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Cabin1" unique_id=133416138]
+transform = Transform3D(0.8333334, 0, -1.4210855e-14, 0, 0.8333334, 0, 1.4210855e-14, 0, 0.8333334, -4.0319223, 2.1307275, -1.7881393e-07)
+light_energy = 0.18
+shadow_enabled = true
+omni_range = 178.627
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Cabin1" unique_id=1919582643]
+transform = Transform3D(0.8333334, 0, -4.2632564e-14, 0, 0.8333334, 0, 4.2632564e-14, 0, 0.8333334, 4.31361, 2.2932189, 2.3841858e-07)
+light_energy = 0.18
+shadow_enabled = true
+omni_range = 178.627
+
+[node name="Cameras" type="Node3D" parent="." unique_id=2003814907]
+
+[node name="Camera1" type="Camera3D" parent="Cameras" unique_id=155598812]
+transform = Transform3D(0.8249788, 0.054522377, -0.56252766, -0.0018786686, 0.9955948, 0.09374176, 0.56516063, -0.07627816, 0.82144696, -2.198882, 5.76979, 4.331042)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera1" unique_id=1167900954]
+script = ExtResource("4_7p6j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera1/Area3D" unique_id=1247842712]
+transform = Transform3D(0.80981517, -0.003629461, 0.5866746, 0.053891994, 0.9962173, -0.06822682, -0.5842066, 0.08687088, 0.8069181, 0.3940941, -0.26167488, -3.0578516)
+shape = SubResource("BoxShape3D_6444e")
+
+[node name="Camera2" type="Camera3D" parent="Cameras" unique_id=531009753]
+transform = Transform3D(-0.6879445, 0.033082627, -0.72500896, 0.0198216, 0.99944437, 0.026797028, 0.7254926, 0.004064027, -0.68821806, -3.059907, 5.505359, -5.2880063)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera2" unique_id=1183249636]
+script = ExtResource("4_7p6j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera2/Area3D" unique_id=2076943610]
+transform = Transform3D(0.6922681, 0.05586557, 0.7194699, -0.0067894175, 0.9974654, -0.07091858, -0.72160983, 0.0442122, 0.6908704, 0.63739955, -0.32997608, -2.525782)
+shape = SubResource("BoxShape3D_7p6j4")
+
+[node name="Camera3" type="Camera3D" parent="Cameras" unique_id=1632000233]
+transform = Transform3D(0.897849, 0.050261755, -0.43742537, 0.004409872, 0.99238706, 0.12308044, 0.44028148, -0.11243662, 0.890792, -0.6043687, 5.9077415, -1.2072747)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera3" unique_id=311159714]
+script = ExtResource("4_7p6j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Area3D" unique_id=1006575177]
+transform = Transform3D(0.8743427, 0.014380039, 0.48512322, 0.051651873, 0.9911445, -0.12246839, -0.4825851, 0.13213673, 0.8658102, 1.2106205, -0.28777504, -2.8740888)
+shape = SubResource("BoxShape3D_evi0p")
+
+[node name="Camera3" type="Camera3D" parent="Cameras/Camera3" unique_id=1705564079]
+transform = Transform3D(-0.011265814, -0.036216233, 0.9992806, 0.12812512, 0.991054, 0.037362557, -0.9916941, 0.12845385, -0.006524861, 0.88168395, 0.64923143, -6.4801593)
+
+[node name="Area3D" type="Area3D" parent="Cameras/Camera3/Camera3" unique_id=591054548]
+script = ExtResource("4_7p6j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Camera3/Area3D" unique_id=1234791093]
+transform = Transform3D(0.8901586, 0.006837348, 0.45553145, 0.003668177, 0.999701, -0.022175647, -0.45555997, 0.021408338, 0.88991886, -0.31622505, -0.18514729, -3.4035358)
+shape = SubResource("BoxShape3D_lsmp6")
+
+[node name="Player" parent="." unique_id=1036565057 instance=ExtResource("4_6444e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7451752, 4.740246, 3.7885737)
+
+[node name="Item_Pickup" parent="." unique_id=942578606 instance=ExtResource("5_evi0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0594823, 4.9626856, -4.562338)
+item_model = ExtResource("6_lsmp6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394881329]
+transform = Transform3D(0.4509035, 0.2697478, 0.8508362, -0.8915842, 0.09126818, 0.4435625, 0.041995745, -0.95859605, 0.28165606, 0, 0, 0)
+light_color = Color(0.93464565, 0.9509378, 0.9999996, 1)
+light_energy = 0.3
+light_indirect_energy = 2.0
+shadow_enabled = true
+
+[connection signal="body_entered" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera1/Area3D" to="Cameras/Camera1/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera2/Area3D" to="Cameras/Camera2/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera2/Area3D" to="Cameras/Camera2/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera3/Area3D" to="Cameras/Camera3/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Cameras/Camera3/Camera3/Area3D" to="Cameras/Camera3/Camera3/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Cameras/Camera3/Camera3/Area3D" to="Cameras/Camera3/Camera3/Area3D" method="exit_trigger"]

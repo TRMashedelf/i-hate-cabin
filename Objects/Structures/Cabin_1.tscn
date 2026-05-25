@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://3t3mium5wd3r" path="res://Objects/Decoration/table.tscn" id="2_b2fc7"]
 [ext_resource type="PackedScene" uid="uid://djqluqomic3pn" path="res://Objects/Decoration/seat.tscn" id="3_vq3my"]
 [ext_resource type="PackedScene" uid="uid://b82xitm55c85" path="res://Objects/Decoration/bed.tscn" id="4_vq3my"]
+[ext_resource type="PackedScene" uid="uid://dysbxdp5llc7j" path="res://Objects/Decoration/fireplace.tscn" id="5_3aath"]
 
 [node name="Cabin1" type="Node3D" unique_id=1653363661]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="Cabin_1_model" parent="." unique_id=1183756314 instance=ExtResource("1_mrf70")]
 
@@ -23,3 +25,6 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 1.9664273, 0.9687485
 
 [node name="Bed" parent="." unique_id=1347457602 instance=ExtResource("4_vq3my")]
 transform = Transform3D(-2.6226832e-08, 0, 0.59999996, 0, 0.59999996, 0, -0.59999996, 0, -2.6226832e-08, 3.688619, 0.6499987, -1.6688948)
+
+[node name="Fireplace" parent="." unique_id=2046427168 instance=ExtResource("5_3aath")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -1.8969133, 0.87499857, -0.4360776)
