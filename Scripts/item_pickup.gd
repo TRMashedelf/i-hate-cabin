@@ -12,6 +12,9 @@ var scene_path: String = "res://Objects/Pickups/item_pickup.tscn"
 @onready var model = $Model
 @onready var interact_ui = $InteractUI
 @onready var audio = $AudioStreamPlayer
+@onready var popup = $Popup
+@onready var popup_item_name = $Popup/VBoxContainer/Item_Name
+@onready var popup_item_texture = $Popup/VBoxContainer/Item_Texture
 
 var player_in_range = false
 
@@ -19,6 +22,8 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		var model_item = item_model.instantiate()
 		model.add_child.call_deferred(model_item)
+		popup_item_name.text = item_name
+		popup_item_texture.texture = item_icon_texture
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +34,9 @@ func _process(_delta: float) -> void:
 		
 	if player_in_range and Input.is_action_just_pressed("interact") and !audio.playing:
 			audio.play()
-			visible = false
+			popup.visible = true
+			model.visible = false
+			interact_ui.visible = false
 			pickup_item()
 
 func pickup_item():
@@ -59,4 +66,5 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 
 func _on_audio_stream_player_finished() -> void:
-	self.queue_free()
+	popup.visible = false
+	queue_free()

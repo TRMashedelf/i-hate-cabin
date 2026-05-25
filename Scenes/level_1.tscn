@@ -84,6 +84,7 @@ script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera1/Area3D" unique_id=1247842712]
 transform = Transform3D(0.80981517, -0.003629422, 0.5866746, 0.053891994, 0.9962044, -0.06822682, -0.5842066, 0.08687091, 0.8069181, 0.040172637, -0.5616231, -3.5393515)
+visible = false
 shape = SubResource("BoxShape3D_6444e")
 
 [node name="Camera2" type="Camera3D" parent="Cameras" unique_id=531009753]
@@ -95,6 +96,7 @@ script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera2/Area3D" unique_id=2076943610]
 transform = Transform3D(0.6922681, 0.05586557, 0.7194699, -0.0067900936, 0.9974654, -0.07091858, -0.72160983, 0.0442122, 0.6908704, 0.671563, -0.32166147, -2.7565804)
+visible = false
 shape = SubResource("BoxShape3D_7p6j4")
 
 [node name="Camera3" type="Camera3D" parent="Cameras" unique_id=1632000233]
@@ -106,6 +108,7 @@ script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera3/Area3D" unique_id=1006575177]
 transform = Transform3D(0.87436086, 0.014380039, 0.4851289, 0.051651932, 0.9911445, -0.12247263, -0.4825859, 0.13213673, 0.8658086, 1.0780324, -0.3383212, -2.4805112)
+visible = false
 shape = SubResource("BoxShape3D_evi0p")
 
 [node name="Camera4" type="Camera3D" parent="Cameras" unique_id=1705564079]
@@ -117,6 +120,7 @@ script = ExtResource("4_7p6j4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cameras/Camera4/Area3D" unique_id=1234791093]
 transform = Transform3D(0.8901555, 0.0068370234, 0.45553154, 0.0036681825, 0.99967366, -0.022176068, -0.45555893, 0.021407422, 0.8899062, -1.2188449, -0.4935956, -3.0385423)
+visible = false
 shape = SubResource("BoxShape3D_lsmp6")
 
 [node name="Player" parent="." unique_id=1036565057 instance=ExtResource("4_6444e")]

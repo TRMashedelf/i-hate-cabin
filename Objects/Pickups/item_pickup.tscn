@@ -20,6 +20,7 @@ font_size = 24
 depth = 0.0
 
 [node name="Item_Pickup" type="Node3D" unique_id=942578606 groups=["pickup"]]
+process_mode = 3
 script = ExtResource("1_be17s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=298281120]
@@ -38,6 +39,41 @@ mesh = SubResource("TextMesh_1ktxu")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1580127761]
 stream = ExtResource("2_be17s")
 
+[node name="Popup" type="Control" parent="." unique_id=995990594]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup" unique_id=1184983026]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Item_Name" type="Label" parent="Popup/VBoxContainer" unique_id=1424697343]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Item_Texture" type="TextureRect" parent="Popup/VBoxContainer" unique_id=1454876839]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+stretch_mode = 2
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
